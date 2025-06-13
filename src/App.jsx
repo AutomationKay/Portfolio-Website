@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Blog from './pages/Blog';
-import Resume from './pages.Resume';
+import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Background from './components/Background';
 import './components/Background.css';
