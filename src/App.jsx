@@ -10,7 +10,7 @@ import Blog from './pages/Blog';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Background from './components/Background';
-import BootSequence from './components/BootSequence'; // Import the new component
+import BootSequence from './components/BootSequence';
 import './App.css'; 
 import './components/Background.css';
 
@@ -18,24 +18,22 @@ export default function App() {
   const [isBooting, setIsBooting] = useState(false);
   const [enteredPortfolio, setEnteredPortfolio] = useState(false);
 
-  // This function will be called when the boot sequence is finished.
   const handleBootComplete = () => {
     setIsBooting(false);
     setEnteredPortfolio(true);
   };
 
-  // This function starts the boot sequence.
   const handleEnterClick = () => {
     setIsBooting(true);
   };
 
-  // If we have fully entered, show the main portfolio.
   if (enteredPortfolio) {
     return (
       <div className="min-h-screen bg-black text-white font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
         <Background />
         <Navbar />
-        <main className="relative z-10 flex-grow w-full flex flex-col items-center px-4 md:px-8 pt-24 pb-12">
+  
+        <main className="relative z-10 flex-grow w-full flex flex-col justify-start items-center px-4 md:px-8 pt-32 pb-12">
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -53,12 +51,11 @@ export default function App() {
     );
   }
 
-  // If we are in the booting process, show the boot sequence.
   if (isBooting) {
     return <BootSequence onComplete={handleBootComplete} />;
   }
 
-  // Otherwise, show the initial landing page.
+  
   return (
     <div className="min-h-screen bg-black text-white font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
       <Background />
@@ -84,9 +81,8 @@ export default function App() {
           animate={{ opacity: 1 }} 
           transition={{ delay: 1, duration: 1 }} 
           className="mt-10 px-6 py-3 border border-neon-orange text-neon-orange hover:bg-neon-orange hover:text-black transition rounded-md shadow-lg"
-          onClick={handleEnterClick} // Changed this to trigger the boot sequence
+          onClick={handleEnterClick}
         >
-          {/* 💡 Themed button text */}
           Initialize Systems
         </motion.button>
       </main>
