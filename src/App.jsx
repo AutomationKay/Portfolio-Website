@@ -56,7 +56,7 @@ export default function App() {
         <>
           <Background />
           <Navbar />
-          <div className="flex-grow flex flex-col justify-center px-4 md:px-8">
+          <div className="flex-grow flex flex-col justify-center items-center w-full px-4 md:px-8">
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<Home />} />
