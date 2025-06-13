@@ -1,11 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 
 body {
   font-family: 'Orbitron', 'Roboto Mono', monospace;
-  background-color: #111;
   color: #0ff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
