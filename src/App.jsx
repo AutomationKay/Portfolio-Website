@@ -56,7 +56,7 @@ export default function App() {
         <>
           <Background />
           <Navbar />
-          <div className="pt-28 px-4 md:px-8 max-w-screen-xl mx-auto min-h-screen">
+          <div className="flex flex-col justify-between w-full min-h-screen px-4 md:px-8">
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<Home />} />
