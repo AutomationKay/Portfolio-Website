@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 w-full z-50 bg-black bg-opacity-90 border-b border-gray-700">
       <nav className="max-w-7xl mx-auto px-4 flex justify-center items-center py-4">
-        <ul className="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 md:gap-x-8 text-lg font-semibold">
+        <ul className="flex flex-wrap justify-center gap-x-6 sm:gap-x-8 md:gap-x-10 text-lg font-semibold">
           {tabs.map((tab) => (
             <li key={tab.path}>
               <Link
