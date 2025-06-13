@@ -4,6 +4,7 @@ import './Background.css';
 export default function Background() {
   const [offsetY, setOffsetY] = useState(0);
 
+  // This function tracks the user's scroll position
   const handleScroll = () => setOffsetY(window.scrollY);
 
   useEffect(() => {
@@ -11,12 +12,13 @@ export default function Background() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // This function calculates the transform style for the parallax effect
   const parallaxStyle = (multiplier) => ({
     transform: `translateY(${offsetY * multiplier}px)`
   });
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden">
+    <div className="fixed-background-container">
       <div className="gear gear1" style={parallaxStyle(0.02)}></div>
       <div className="gear gear2" style={parallaxStyle(-0.015)}></div>
       <div className="gear gear3" style={parallaxStyle(0.03)}></div>
