@@ -5,9 +5,9 @@ import { pageMotion } from '../utils/pageMotion';
 
 export default function Contact() {
   const contactInfo = [
-    { icon: <Linkedin className="w-6 h-6" />, label: 'LinkedIn', url: 'https://linkedin.com/in/yourusername' },
-    { icon: <Github className="w-6 h-6" />, label: 'GitHub', url: 'https://github.com/yourusername' },
-    { icon: <Mail className="w-6 h-6" />, label: 'Email', url: 'mailto:your@email.com' },
+    { icon: <Linkedin className="w-12 h-12" />, label: 'LinkedIn', url: 'https://linkedin.com/in/kamaal-bartlett/' },
+    { icon: <Github className="w-12 h-12" />, label: 'GitHub', url: 'https://github.com/automationkay' },
+    { icon: <Mail className="w-12 h-12" />, label: 'Email', url: 'mailto:bartlettkamaal@gmail.com' },
   ];
 
   return (
@@ -17,7 +17,7 @@ export default function Contact() {
         {contactInfo.map((item, i) => (
           <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center hover:underline">
             {item.icon}
-            <span className="mt-2">{item.label}</span>
+            <span className="mt-5 text x1">{item.label}</span>
           </a>
         ))}
       </div>
