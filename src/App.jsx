@@ -9,20 +9,19 @@ import Projects from './pages/Projects';
 import Blog from './pages/Blog';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
-// import Background from './components/Background'; // Temporarily commented out for debugging
-// import './components/Background.css';
+import Background from './components/Background';
+import './components/Background.css';
 
 export default function App() {
   const [enteredPortfolio, setEnteredPortfolio] = useState(false);
 
   return (
-    <div className="min-h-screen bg-black text-white font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
+    <div className="flex flex-col flex-grow bg-black text-white font-mono" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
       
-      {/* <Background />  <- THE DEBUGGING STEP: Temporarily removed from render */}
+      <Background />
 
       {/* --- Landing Page View --- */}
       {!enteredPortfolio && (
-        // flex-grow makes this container fill all available space, and justify/items center the content.
         <main className="relative z-10 flex-grow flex flex-col justify-center items-center text-center px-4">
           <motion.h1 
             initial={{ opacity: 0, y: -50 }} 
@@ -56,8 +55,6 @@ export default function App() {
       {enteredPortfolio && (
         <>
           <Navbar />
-          {/* The main content area grows to fill the space between header and footer.
-              pt-24 adds padding to offset the fixed navbar's height. */}
           <main className="relative z-10 flex-grow w-full flex flex-col justify-center items-center px-4 md:px-8 pt-24 pb-12">
             <AnimatePresence mode="wait">
               <Routes>

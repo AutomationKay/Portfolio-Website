@@ -19,18 +19,23 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
 
+    <!-- 💡 THE FIX: This new style block creates a robust, full-height foundation. -->
     <style>
-      html,
-      body,
-      #root {
-        width: 100%;
-        height: 100%;
+      html, body, #root {
         margin: 0;
         padding: 0;
+        width: 100%;
+        /* Use viewport height to guarantee full screen height */
+        min-height: 100vh; 
         box-sizing: border-box;
       }
       body {
-        background-color: #111; /* Sets the default background color */
+        background-color: #111;
+      }
+      /* This ensures the App component itself can correctly grow to fill the root div */
+      #root {
+        display: flex;
+        flex-direction: column;
       }
     </style>
   </head>

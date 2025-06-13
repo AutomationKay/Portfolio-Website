@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root {
-  width: 100%;
-  min-height: 100vh; /* Use viewport height to guarantee it fills the screen */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Ensures padding and borders are included in the width/height */
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
 
 body {
   font-family: 'Orbitron', 'Roboto Mono', monospace;
