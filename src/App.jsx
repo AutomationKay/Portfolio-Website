@@ -10,66 +10,86 @@ import Blog from './pages/Blog';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Background from './components/Background';
+import BootSequence from './components/BootSequence'; // Import the new component
+import './App.css'; 
 import './components/Background.css';
+
 export default function App() {
+  const [isBooting, setIsBooting] = useState(false);
   const [enteredPortfolio, setEnteredPortfolio] = useState(false);
 
-  return (
-    <div className="flex flex-col flex-grow bg-black text-white font-mono" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
-      
-      <Background />
+  // This function will be called when the boot sequence is finished.
+  const handleBootComplete = () => {
+    setIsBooting(false);
+    setEnteredPortfolio(true);
+  };
 
-      {/* --- Landing Page View --- */} 
-      {!enteredPortfolio && (
-        <main className="relative z-10 flex-grow flex flex-col justify-center items-center text-center px-4">
-          <motion.h1 
-            initial={{ opacity: 0, y: -50 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 1 }} 
-            className="text-5xl md:text-7xl font-bold text-neon-green drop-shadow-md"
-          >
-            KAMAAL
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ delay: 0.5, duration: 1 }} 
-            className="text-xl md:text-2xl mt-4 text-neon-blue"
-          >
-            Robotics Engineer | Data Scientist | AI Developer
-          </motion.p>
-          <motion.button 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 1, duration: 1 }} 
-            className="mt-10 px-6 py-3 border border-neon-orange text-neon-orange hover:bg-neon-orange hover:text-black transition rounded-md shadow-lg"
-            onClick={() => setEnteredPortfolio(true)}
-          >
-            Enter Portfolio
-          </motion.button>
+  // This function starts the boot sequence.
+  const handleEnterClick = () => {
+    setIsBooting(true);
+  };
+
+  // If we have fully entered, show the main portfolio.
+  if (enteredPortfolio) {
+    return (
+      <div className="min-h-screen bg-black text-white font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
+        <Background />
+        <Navbar />
+        <main className="relative z-10 flex-grow w-full flex flex-col items-center px-4 md:px-8 pt-24 pb-12">
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/resume" element={<Resume />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </AnimatePresence>
         </main>
-      )}
+        <Footer />
+      </div>
+    );
+  }
 
-      {/* --- Main Portfolio View --- */}
-      {enteredPortfolio && (
-        <>
-          <Navbar />
-          <main className="relative z-10 flex-grow w-full flex flex-col justify-center items-center px-4 md:px-8 pt-24 pb-12">
-            <AnimatePresence mode="wait">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/resume" element={<Resume />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<Navigate to="/" />} />
-              </Routes>
-            </AnimatePresence>
-          </main>
-          <Footer />
-        </>
-      )}
-    </div> 
+  // If we are in the booting process, show the boot sequence.
+  if (isBooting) {
+    return <BootSequence onComplete={handleBootComplete} />;
+  }
+
+  // Otherwise, show the initial landing page.
+  return (
+    <div className="min-h-screen bg-black text-white font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
+      <Background />
+      <main className="relative z-10 flex-grow flex flex-col justify-center items-center text-center px-4">
+        <motion.h1 
+          initial={{ opacity: 0, y: -50 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 1 }} 
+          className="text-5xl md:text-7xl font-bold text-neon-green drop-shadow-md"
+        >
+          KAMAAL
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ delay: 0.5, duration: 1 }} 
+          className="text-xl md:text-2xl mt-4 text-neon-blue"
+        >
+          Software Engineer | Robotics Enthusiast
+        </motion.p>
+        <motion.button 
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          transition={{ delay: 1, duration: 1 }} 
+          className="mt-10 px-6 py-3 border border-neon-orange text-neon-orange hover:bg-neon-orange hover:text-black transition rounded-md shadow-lg"
+          onClick={handleEnterClick} // Changed this to trigger the boot sequence
+        >
+          {/* 💡 Themed button text */}
+          Initialize Systems
+        </motion.button>
+      </main>
+    </div>
   );
 }
