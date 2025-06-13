@@ -16,17 +16,16 @@ export default function App() {
   const [enteredPortfolio, setEnteredPortfolio] = useState(false);
 
   return (
-    // The main container is also made a flex column to control the layout.
-    <div className="h-screen w-screen bg-black text-white font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
+    // This container now naturally fills the space provided by the corrected App.css
+    <div className="bg-black text-white font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
       
       <Background />
 
-      {/* This relative container ensures content sits on top of the fixed background */}
+      {/* This relative container holds all content on top of the fixed background */}
       <div className="relative z-10 flex flex-col flex-grow">
 
         {/* --- Landing Page View --- */}
         {!enteredPortfolio && (
-          // This flex container grows to fill the space and centers the content
           <div className="flex-grow flex flex-col justify-center items-center text-center px-4">
             <motion.h1 
               initial={{ opacity: 0, y: -50 }} 
@@ -60,7 +59,7 @@ export default function App() {
         {enteredPortfolio && (
           <>
             <Navbar />
-            {/* The main content area grows to fill the space between header and footer */}
+            {/* The main content area grows and has padding-top to account for the fixed navbar */}
             <main className="flex-grow w-full flex flex-col justify-center items-center px-4 md:px-8 pt-20">
               <AnimatePresence mode="wait">
                 <Routes>

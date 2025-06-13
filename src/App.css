@@ -2,23 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Font + Base */
+html, body, #root {
+  width: 100%;
+  min-height: 100vh; /* Use viewport height to guarantee it fills the screen */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding and borders are included in the width/height */
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   font-family: 'Orbitron', 'Roboto Mono', monospace;
   background-color: #111;
   color: #0ff;
-  margin: 0;
-  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Screen size configuration */
-html, body, #root {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 /* Neon Text Colors */
