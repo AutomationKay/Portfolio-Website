@@ -15,19 +15,6 @@ import './components/Background.css';
 export default function App() {
   const [enteredPortfolio, setEnteredPortfolio] = useState(false);
 
-  {enteredPortfolio && (
-  <>
-    <Background />  {/* ADD THIS */}
-    <Navbar />
-    <div className="pt-28 px-4 md:px-8 max-w-screen-xl mx-auto min-h-screen">
-      <AnimatePresence mode="wait">
-        <Routes> ... </Routes>
-      </AnimatePresence>
-    </div>
-    <Footer />
-  </>
-)}
-
   return (
     <div className="bg-black text-white min-h-screen w-full font-mono" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
       
@@ -67,6 +54,7 @@ export default function App() {
       {/* Full portfolio after entering */}
       {enteredPortfolio && (
         <>
+          <Background />
           <Navbar />
           <div className="pt-28 px-4 md:px-8 max-w-screen-xl mx-auto min-h-screen">
             <AnimatePresence mode="wait">
