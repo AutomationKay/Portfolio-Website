@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github } from 'lucide-react';
+import { pageMotion } from '../utils/pageMotion';
 
 export default function Projects() {
   const highlightedProjects = [

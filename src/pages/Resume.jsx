@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { pageMotion } from '../utils/pageMotion';
 
 export default function Resume() {
   return (

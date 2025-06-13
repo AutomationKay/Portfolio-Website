@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { pageMotion } from '../utils/pageMotion';
 
 export default function Contact() {
   const contactInfo = [
