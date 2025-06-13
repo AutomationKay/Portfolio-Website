@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function Resume() {
   return (
-    <motion.div {...pageMotion} className="min-h-screen ...">
+    <motion.div {...pageMotion} className="min-h-screen flex flex-col justify-center items-center px-4">
       <h2 className="text-5xl text-neon-orange font-semibold mb-8">Resume</h2>
 
       <div className="flex flex-col items-center">

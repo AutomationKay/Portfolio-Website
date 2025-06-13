@@ -16,7 +16,7 @@ export default function Blog() {
   ];
 
   return (
-    <motion.div {...pageMotion} className="min-h-screen ...">
+    <motion.div {...pageMotion} className="min-h-screen flex flex-col justify-center items-center px-4">
      
       <h2 className="text-5xl text-neon-orange font-semibold mb-8">Blog</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">

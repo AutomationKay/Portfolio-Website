@@ -45,7 +45,7 @@ export default function Projects() {
   ];
 
   return (
-    <motion.div {...pageMotion} className="min-h-screen ...">
+    <motion.div {...pageMotion} className="min-h-screen flex flex-col justify-center items-center px-4">
       <h2 className="text-5xl text-neon-orange font-semibold mb-12">Projects</h2>
 
       <h3 className="text-3xl text-neon-green mb-6">Highlighted Projects</h3>
