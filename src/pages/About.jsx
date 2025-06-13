@@ -4,7 +4,7 @@ import { pageMotion } from '../utils/pageMotion';
 
 export default function About() {
   return (
-    <motion.div {...pageMotion} className="min-h-screen flex flex-col justify-center items-center px-4">
+    <motion.div {...pageMotion} className="flex flex-col items-center px-4 py-16">
       <h2 className="text-5xl text-neon-orange font-semibold mb-8">About Me</h2>
 
       <div className="flex flex-col md:flex-row items-center gap-10 max-w-5xl mx-auto">

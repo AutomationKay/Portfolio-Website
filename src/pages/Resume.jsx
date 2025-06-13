@@ -4,7 +4,7 @@ import { pageMotion } from '../utils/pageMotion';
 
 export default function Resume() {
   return (
-    <motion.div {...pageMotion} className="min-h-screen flex flex-col justify-center items-center px-4">
+    <motion.div {...pageMotion} className="flex flex-col items-center px-4 py-12 w-full max-w-5xl mx-auto">
       <h2 className="text-5xl text-neon-orange font-semibold mb-8">Resume</h2>
 
       <div className="flex flex-col items-center">

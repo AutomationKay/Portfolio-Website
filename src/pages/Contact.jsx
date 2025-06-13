@@ -11,7 +11,7 @@ export default function Contact() {
   ];
 
   return (
-    <motion.div {...pageMotion} className="min-h-screen flex flex-col justify-center items-center px-4">
+    <motion.div {...pageMotion} className="flex flex-col items-center px-4 py-16">
       <h2 className="text-5xl text-neon-orange font-semibold mb-8">Contact</h2>
       <div className="flex justify-center space-x-12 text-neon-blue text-lg">
         {contactInfo.map((item, i) => (

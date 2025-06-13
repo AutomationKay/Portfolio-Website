@@ -16,7 +16,7 @@ export default function App() {
   const [enteredPortfolio, setEnteredPortfolio] = useState(false);
 
   return (
-    <div className="bg-black text-white min-h-screen w-full font-mono" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
+    <div className="bg-black text-white min-h-screen w-full font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
       
       {/* If not entered yet, show landing page */}
       {!enteredPortfolio && (
@@ -56,7 +56,7 @@ export default function App() {
         <>
           <Background />
           <Navbar />
-          <div className="flex flex-col justify-between w-full min-h-screen px-4 md:px-8">
+          <div className="flex-grow flex flex-col justify-center px-4 md:px-8">
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<Home />} />
