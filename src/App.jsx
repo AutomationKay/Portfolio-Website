@@ -20,7 +20,7 @@ export default function App() {
       
       {/* If not entered yet, show landing page */}
       {!enteredPortfolio && (
-        <div className="min-h-screen flex flex-col justify-center items-center text-center px-4">
+        <div className="flex-grow flex flex-col justify-center items-center text-center px-4">
           <motion.h1 
             initial={{ opacity: 0, y: -50 }} 
             animate={{ opacity: 1, y: 0 }} 
