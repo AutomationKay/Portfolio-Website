@@ -10,25 +10,22 @@ import Blog from './pages/Blog';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Background from './components/Background';
-import './components/Background.css';
+import './components/Background.css'; // This path must be correct
 
 export default function App() {
   const [enteredPortfolio, setEnteredPortfolio] = useState(false);
 
   return (
-    // This outer div now acts as the main canvas for our layers.
     <div className="bg-black text-white font-mono" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
       
-      {/* Background Layer: Positioned absolutely to fill the screen behind the content. */}
+      {/* The background is now fixed and completely separate from the layout */}
       <Background />
 
-      {/* Content Layer: Positioned relatively on top of the background. */}
-      {/* This container handles all content layout, ensuring it fills the screen and centers correctly. */}
+      {/* This relative container holds all content on top of the background */}
       <div className="relative z-10 flex flex-col min-h-screen">
 
-        {/* If not entered yet, show landing page */}
+        {/* --- Landing Page View (No Navbar) --- */}
         {!enteredPortfolio && (
-          // flex-grow makes this div fill the available space in the parent flex container.
           <div className="flex-grow flex flex-col justify-center items-center text-center px-4">
             <motion.h1 
               initial={{ opacity: 0, y: -50 }} 
@@ -38,7 +35,6 @@ export default function App() {
             >
               KAMAAL
             </motion.h1>
-
             <motion.p 
               initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }} 
@@ -47,7 +43,6 @@ export default function App() {
             >
               Robotics Engineer | Data Scientist | AI Developer
             </motion.p>
-
             <motion.button 
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1 }} 
@@ -60,12 +55,12 @@ export default function App() {
           </div>
         )}
 
-        {/* Full portfolio after entering */}
+        {/* --- Main Portfolio View --- */}
         {enteredPortfolio && (
           <>
             <Navbar />
-            {/* Main Content Area: Fills the space between Navbar and Footer */}
-            <main className="flex-grow flex flex-col justify-center items-center w-full px-4 md:px-8">
+            {/* 💡 FIX: Added pt-24 (6rem) to push the content down from under the fixed navbar */}
+            <main className="flex-grow w-full flex flex-col justify-center items-center px-4 md:px-8 pt-24">
               <AnimatePresence mode="wait">
                 <Routes>
                   <Route path="/" element={<Home />} />
