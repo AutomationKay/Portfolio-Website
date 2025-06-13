@@ -10,13 +10,7 @@ export default function Contact() {
   ];
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4 }}
-      className="max-w-4xl mx-auto text-center"
-    >
+    <motion.div {...pageMotion} className="min-h-screen ...">
       <h2 className="text-5xl text-neon-orange font-semibold mb-8">Contact</h2>
       <div className="flex justify-center space-x-12 text-neon-blue text-lg">
         {contactInfo.map((item, i) => (
@@ -26,6 +20,6 @@ export default function Contact() {
           </a>
         ))}
       </div>
-    </motion.section>
+    </motion.div>
   );
 }

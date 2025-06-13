@@ -45,13 +45,7 @@ export default function Projects() {
   ];
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4 }}
-      className="max-w-7xl mx-auto text-center"
-    >
+    <motion.div {...pageMotion} className="min-h-screen ...">
       <h2 className="text-5xl text-neon-orange font-semibold mb-12">Projects</h2>
 
       <h3 className="text-3xl text-neon-green mb-6">Highlighted Projects</h3>
@@ -101,6 +95,6 @@ export default function Projects() {
           </div>
         ))}
       </div>
-    </motion.section>
+    </motion.div>
   );
 }

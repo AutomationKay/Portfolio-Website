@@ -1,29 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { pageMotion } from '../utils/pageMotion';
 
 export default function Home() {
-  const navigate = useNavigate();
-
   return (
-    <section className="flex flex-col justify-center items-center min-h-screen text-center px-4">
-      <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}
-        className="text-5xl md:text-6xl font-extrabold text-neon-green mb-4">
-        Kamaal Bartlett
-      </motion.h1>
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 1 }}
-        className="text-xl md:text-2xl text-white">
-        Robotics • AI • Data Science
-      </motion.p>
-      <motion.button
-        onClick={() => navigate('/about')}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="mt-10 btn-terminal"
-      >
-        Enter Portfolio
-      </motion.button>
-    </section>
+    <motion.div {...pageMotion} className="min-h-screen flex flex-col justify-center items-center text-center px-4">
+      <h1 className="text-5xl md:text-6xl font-bold text-neon-green mb-8">Welcome!</h1>
+      <p className="text-xl md:text-2xl text-neon-blue max-w-3xl mb-10">
+        I'm Kamaal Bartlett — Robotics Engineer, AI Developer, and Data Scientist.
+        Explore my projects, blog, resume, and feel free to reach out if you'd like to collaborate.
+      </p>
+    </motion.div>
   );
 }

@@ -16,13 +16,8 @@ export default function Blog() {
   ];
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4 }}
-      className="max-w-7xl mx-auto text-center"
-    >
+    <motion.div {...pageMotion} className="min-h-screen ...">
+     
       <h2 className="text-5xl text-neon-orange font-semibold mb-8">Blog</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {blogPosts.map((post, index) => (
@@ -35,6 +30,6 @@ export default function Blog() {
           </div>
         ))}
       </div>
-    </motion.section>
+    </motion.div>
   );
 }

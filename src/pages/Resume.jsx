@@ -3,13 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function Resume() {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4 }}
-      className="max-w-7xl mx-auto text-center"
-    >
+    <motion.div {...pageMotion} className="min-h-screen ...">
       <h2 className="text-5xl text-neon-orange font-semibold mb-8">Resume</h2>
 
       <div className="flex flex-col items-center">
@@ -27,6 +21,6 @@ export default function Resume() {
           Download Resume (PDF)
         </a>
       </div>
-    </motion.section>
+    </motion.div>
   );
 }
