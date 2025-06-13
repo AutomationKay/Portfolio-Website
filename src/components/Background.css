@@ -1,9 +1,11 @@
 .gear {
   position: absolute;
-  opacity: 0.08;
+  opacity: 0.06;
   background-repeat: no-repeat;
   background-size: contain;
   pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) saturate(100%) invert(72%) sepia(85%) saturate(660%) hue-rotate(125deg) brightness(107%) contrast(103%);
 }
 
 .gear1 {
