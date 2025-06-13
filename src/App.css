@@ -71,7 +71,7 @@ body {
   box-shadow: 0 0 16px #00b3b3, 0 0 32px #00b3b3;
 }
 
-/* LED blinking indicator (optional) */
+/* LED blinking indicator */
 .led {
   width: 10px;
   height: 10px;
@@ -120,3 +120,17 @@ iframe {
   background-color: #262626;
 }
 
+
+/* Animation for tabs in Navbar */
+.nav-link-pulse {
+  animation: pulse-subtle 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
