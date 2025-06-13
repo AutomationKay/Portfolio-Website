@@ -7,25 +7,26 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Blog from './pages/Blog';
-import Resume from './pages/Resume';
+import Resume from './pages.Resume';
 import Contact from './pages/Contact';
 import Background from './components/Background';
-import './components/Background.css'; // This path must be correct
+import './components/Background.css';
 
 export default function App() {
   const [enteredPortfolio, setEnteredPortfolio] = useState(false);
 
   return (
-    <div className="bg-black text-white font-mono" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
+    // The main container is also made a flex column to control the layout.
+    <div className="h-screen w-screen bg-black text-white font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
       
-      {/* The background is now fixed and completely separate from the layout */}
       <Background />
 
-      {/* This relative container holds all content on top of the background */}
-      <div className="relative z-10 flex flex-col min-h-screen">
+      {/* This relative container ensures content sits on top of the fixed background */}
+      <div className="relative z-10 flex flex-col flex-grow">
 
-        {/* --- Landing Page View (No Navbar) --- */}
+        {/* --- Landing Page View --- */}
         {!enteredPortfolio && (
+          // This flex container grows to fill the space and centers the content
           <div className="flex-grow flex flex-col justify-center items-center text-center px-4">
             <motion.h1 
               initial={{ opacity: 0, y: -50 }} 
@@ -59,8 +60,8 @@ export default function App() {
         {enteredPortfolio && (
           <>
             <Navbar />
-            {/* 💡 FIX: Added pt-24 (6rem) to push the content down from under the fixed navbar */}
-            <main className="flex-grow w-full flex flex-col justify-center items-center px-4 md:px-8 pt-24">
+            {/* The main content area grows to fill the space between header and footer */}
+            <main className="flex-grow w-full flex flex-col justify-center items-center px-4 md:px-8 pt-20">
               <AnimatePresence mode="wait">
                 <Routes>
                   <Route path="/" element={<Home />} />
