@@ -5,7 +5,7 @@ import { pageMotion } from '../utils/pageMotion';
 
 export default function Contact() {
   const contactInfo = [
-    { icon: <Linkedin className="w-12 h-12" />, label: 'LinkedIn', url: 'https://linkedin.com/in/kamaal-bartlett/' },
+    { icon: <Linkedin className="w-12 h-12" />, label: 'LinkedIn', url: 'www.linkedin.com/in/kamaal-bartlett' },
     { icon: <Github className="w-12 h-12" />, label: 'GitHub', url: 'https://github.com/automationkay' },
     { icon: <Mail className="w-12 h-12" />, label: 'Email', url: 'mailto:bartlettkamaal@gmail.com' },
   ];
