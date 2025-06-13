@@ -10,7 +10,7 @@ import Blog from './pages/Blog';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 // import Background from './components/Background'; // Temporarily commented out for debugging
-import './components/Background.css';
+// import './components/Background.css';
 
 export default function App() {
   const [enteredPortfolio, setEnteredPortfolio] = useState(false);
