@@ -9,17 +9,16 @@ import Projects from './pages/Projects';
 import Blog from './pages/Blog';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
-import Background from './components/Background';
+// import Background from './components/Background'; // Temporarily commented out for debugging
 import './components/Background.css';
 
 export default function App() {
   const [enteredPortfolio, setEnteredPortfolio] = useState(false);
 
   return (
-
     <div className="min-h-screen bg-black text-white font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
       
-      <Background />
+      {/* <Background />  <- THE DEBUGGING STEP: Temporarily removed from render */}
 
       {/* --- Landing Page View --- */}
       {!enteredPortfolio && (
