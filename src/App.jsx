@@ -21,7 +21,7 @@ export default function App() {
 
       {/* --- Landing Page View --- */} 
       {!enteredPortfolio && (
-        <main className="relative z-10 flex-grow w-full flex flex-col items-center px-4 md:px-8 pt-24 pb-12">
+        <main className="relative z-10 flex-grow flex flex-col justify-center items-center text-center px-4">
           <motion.h1 
             initial={{ opacity: 0, y: -50 }} 
             animate={{ opacity: 1, y: 0 }} 
