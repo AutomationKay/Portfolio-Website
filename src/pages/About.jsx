@@ -15,7 +15,11 @@ export default function About() {
         />
 
         <p className="text-xl leading-relaxed text-white text-center md:text-left">
-          I’m Kamaal Bartlett — developer, robotics engineer, and data scientist.
+          I’m Kamaal Bartlett — Software Engineer, Robotics Enthusiast, and Data Science masters graduate.
+          I began my career working in Accounting and Finance before taking the leap to dive into the world of Computer Science.
+          Since making this decision I've spent countless hours in preparation to make this career change.
+          I completed a Data Science bootcamp from Springboard, attended and graduated from The University of Denver with a Master's degree in Computer Science,
+
           My work blends artificial intelligence, real-time control systems, deep learning, data analytics, and robotics to build intelligent autonomous systems that interact with real-world environments.
         </p>
       </div>

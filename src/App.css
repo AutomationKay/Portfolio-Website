@@ -1,6 +1,7 @@
 
 body {
   font-family: 'Orbitron', 'Roboto Mono', monospace;
+  font-size: 18px;
   color: #0ff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

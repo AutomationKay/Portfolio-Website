@@ -4,9 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'neon-green': '#00b300',
-        'neon-orange': '#e67e00',
-        'neon-blue': '#00b3b3',
+        'slate-900': '#111827', // New darker background
+        'slate-800': '#1f2937', // New card/element background
+        'slate-300': '#d1d5db', // New primary text color (off-white)
+        'electric-blue': '#38bdf8', // New primary accent color
+        'electric-orange': '#f97316', // New secondary accent
       },
     },
   },
