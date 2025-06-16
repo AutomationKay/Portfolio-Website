@@ -32,9 +32,8 @@ export default function App() {
       <div className = "min-h-screen bg-black text-white font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
         <Background />
         <Navbar />
-  
-        <main className="relative z-10 flex-grow w-full flex flex-col px-4 md:px-8 pt-32 pb-12">
-          <div className="w-full max-w-7xl mx-auto flex-grow flex flex-col">
+        <main className="relative z-10 flex-grow w-full flex flex-col justify-center items-center px-4 md:px-8 pt-32 pb-12">
+          <div className="w-full max-w-7xl">
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Home />} />
