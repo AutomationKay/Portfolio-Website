@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
-
-// import { pageMotion } from '../utils/pageMotion'; 
+import { pageMotion } from '../utils/pageMotion'; 
 
 export default function Contact() {
   const contactInfo = [
@@ -12,10 +11,10 @@ export default function Contact() {
   ];
 
   return (
-    <motion.div /* {...pageMotion} */ className="flex flex-col items-center px-4 py-16">
+      <motion.div /* {...pageMotion} */ className="w-full text-center py-16">
       <h2 className="text-5xl text-neon-orange font-semibold mb-12">Contact</h2>
    
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-16 sm:gap-20 text-neon-blue">
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-24 sm:gap-32 md:gap-40 text-neon-blue">
         {contactInfo.map((item, i) => (
           <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center hover:text-neon-green transition-colors duration-300">
             {item.icon}
