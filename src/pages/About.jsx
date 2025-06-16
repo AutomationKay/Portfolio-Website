@@ -5,7 +5,7 @@ import { pageMotion } from '../utils/pageMotion';
 export default function About() {
   return (
     <motion.div {...pageMotion} className="flex flex-col items-center px-4 py-16">
-      <h2 className="text-5xl text-neon-orange font-semibold mb-8">About Me</h2>
+      <h2 className="text-5xl md:text-6xl font-bold text-neon-green mb-8">About Me</h2>
 
       <div className="flex flex-col md:flex-row items-center gap-10 max-w-5xl mx-auto">
         <img 
@@ -14,7 +14,7 @@ export default function About() {
           className="w-60 h-60 rounded-full object-cover border-4 border-neon-green shadow-lg" 
         />
 
-        <p className="text-xl leading-relaxed text-white text-center md:text-left">
+        <p className="text-xl md:text-2xl text-neon-blue max-w-3xl mb-10">
           I’m Kamaal Bartlett — Software Engineer, Robotics Enthusiast, and Data Science Master's graduate.
                   I started out in Accounting and Finance, but my passion for experimenting with technology and problem-solving led me to dive into Computer Science.
 
