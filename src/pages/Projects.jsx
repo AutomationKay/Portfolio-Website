@@ -45,7 +45,7 @@ export default function Projects() {
     return (
         <motion.div {...pageMotion} className="flex flex-col items-center px-4 w-full">
             <h2 className="text-5xl text-neon-orange font-semibold mb-12">Projects</h2>
-            <div className="w-full p-4"> 
+            <div className="w-full p-2"> 
                 <Carousel items={projectCards} />
             </div>
         </motion.div>
