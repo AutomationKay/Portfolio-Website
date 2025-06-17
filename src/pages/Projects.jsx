@@ -6,7 +6,7 @@ import Carousel from '../components/Carousel';
 
 const ProjectCard = ({ project }) => (
     <div className="w-full h-full flex items-center justify-center">
-        <div className="bg-gray-900 rounded-lg p-6 shadow-lg border border-neon-orange card-glow text-left w-full max-w-xl">
+        <div className="bg-gray-900 rounded-lg p-6 shadow-lg border border-neon-orange card-glow text-left w-full max-w-3xl">
             <div className="mb-4 rounded overflow-hidden">
                 {project.video ? (
                     <video src={project.video} controls className="w-full rounded-md" />
@@ -18,7 +18,7 @@ const ProjectCard = ({ project }) => (
             <p className="text-white mb-4">{project.description}</p>
             <div className="flex flex-wrap gap-2 mb-3">
                 {project.tools.map((tool, i) => (
-                    <span key={i} className="bg-neon-green text-black px-2 py-1 rounded-full text-sm">{tool}</span>
+                    <span key={i} className="inline-block bg-neon-green text-black px-2 py-1 rounded-full text-sm mr-2 mb-2">{tool}</span>
                 ))}
             </div>
             <div className="flex justify-between items-center mt-4">

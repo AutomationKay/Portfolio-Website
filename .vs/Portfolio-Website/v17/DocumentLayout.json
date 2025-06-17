@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\bartl\\Desktop\\Portfolio-Website\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\pages\\Blog.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Blog.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\components\\Navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\Navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\pages\\Projects.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Projects.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\pages\\Home.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Home.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\pages\\Blog.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Blog.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\components\\Navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\Navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\pages\\Home.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Home.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -67,18 +67,17 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-06-15T23:55:45.912Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Navbar.jsx",
               "DocumentMoniker": "C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\components\\Navbar.jsx",
               "RelativeDocumentMoniker": "src\\components\\Navbar.jsx",
               "ToolTip": "C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\components\\Navbar.jsx",
               "RelativeToolTip": "src\\components\\Navbar.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-06-16T18:28:38.59Z",
               "EditorCaption": ""
@@ -93,8 +92,7 @@
               "RelativeToolTip": "src\\components\\Background.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-16T18:16:10.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T18:16:10.052Z"
             },
             {
               "$type": "Document",
@@ -106,8 +104,7 @@
               "RelativeToolTip": "src\\App.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-16T18:15:28.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T18:15:28.563Z"
             },
             {
               "$type": "Document",
@@ -119,8 +116,7 @@
               "RelativeToolTip": "src\\pages\\Resume.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-16T16:10:21.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T16:10:21.208Z"
             },
             {
               "$type": "Document",
@@ -132,21 +128,19 @@
               "RelativeToolTip": "src\\pages\\Contact.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-16T16:10:19.769Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T16:10:19.769Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Blog.jsx",
               "DocumentMoniker": "C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\pages\\Blog.jsx",
               "RelativeDocumentMoniker": "src\\pages\\Blog.jsx",
               "ToolTip": "C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\pages\\Blog.jsx",
               "RelativeToolTip": "src\\pages\\Blog.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAB1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-16T00:14:26.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T00:14:26.846Z"
             },
             {
               "$type": "Document",
@@ -156,14 +150,13 @@
               "RelativeDocumentMoniker": "src\\pages\\Projects.jsx",
               "ToolTip": "C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\pages\\Projects.jsx",
               "RelativeToolTip": "src\\pages\\Projects.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-15T23:56:37.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T23:56:37.977Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Home.jsx",
               "DocumentMoniker": "C:\\Users\\bartl\\Desktop\\Portfolio-Website\\src\\pages\\Home.jsx",
               "RelativeDocumentMoniker": "src\\pages\\Home.jsx",
@@ -171,8 +164,7 @@
               "RelativeToolTip": "src\\pages\\Home.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-15T23:56:09.485Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T23:56:09.485Z"
             },
             {
               "$type": "Document",
@@ -184,8 +176,7 @@
               "RelativeToolTip": "src\\pages\\About.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-15T23:56:08.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T23:56:08.185Z"
             },
             {
               "$type": "Document",

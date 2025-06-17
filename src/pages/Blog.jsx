@@ -5,7 +5,7 @@ import Carousel from '../components/Carousel';
 
 const BlogCard = ({ post }) => (
   <div className="w-full h-full flex items-center justify-center">
-    <div className="bg-gray-900 rounded-lg p-8 shadow-lg border border-neon-orange card-glow text-left w-full max-w-xl h-[300px] flex flex-col justify-between">
+    <div className="bg-gray-900 rounded-lg p-8 shadow-lg border border-neon-orange card-glow text-left w-full max-w-3xl h-[300px] flex flex-col justify-between">
       <div>
         <h3 className="text-3xl font-bold text-neon-green mb-6">{post.title}</h3>
         <p className="text-white text-lg">{post.snippet}</p>
@@ -28,7 +28,7 @@ export default function Blog() {
   return (
     <motion.div {...pageMotion} className="flex flex-col items-center px-4 w-full">
           <h2 className="text-5xl text-neon-orange font-semibold mb-12">Blog</h2>
-      <div className="w-full p-2">
+      <div className="w-full p-1">
         <Carousel items={blogCards} />
       </div>
     </motion.div>
