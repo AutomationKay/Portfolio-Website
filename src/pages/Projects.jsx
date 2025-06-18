@@ -26,10 +26,13 @@ const ProjectCard = ({ project }) => (
                     <Github className="w-5 h-5 mr-1" /> GitHub
                 </a>
                 {project.liveapp && (
-                    <a href={project.liveapp} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-green hover:underline">
+                    <button
+                        onClick={() => window.open(project.liveapp, '_blank', 'noopener,noreferrer')}
+                        className="flex items-center text-neon-green hover:underline"
+                    >
                         <ExternalLink className="w-5 h-5 mr-1" />
                         Live App
-                    </a>
+                    </button>
                 )}
             </div>
         </div>
