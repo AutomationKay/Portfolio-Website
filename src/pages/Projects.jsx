@@ -26,10 +26,12 @@ const ProjectCard = ({ project }) => (
                     <Github className="w-5 h-5 mr-1" /> GitHub
                 </a>
 
-                <div className="flex justify-between items-center mt-4">
-                    <a href={project.liveapp} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-blue hover:underline">
-                        <Liveapp className="w-5 h-5 mr-1" /> Liveapp
+                {/* This conditionally renders the button only if a `liveapp` URL exists. */}
+                {project.liveapp && (
+                    <a href={project.liveapp} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-green hover:underline">
+                        <ExternalLink className="w-5 h-5 mr-1" /> Live App
                     </a>
+                )}
             </div>
         </div>
     </div>
