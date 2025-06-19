@@ -5,22 +5,30 @@ import { pageMotion } from '../utils/pageMotion';
 import Carousel from '../components/Carousel';
 
 const ProjectCard = ({ project }) => (
-    <div className="w-full h-full flex items-center justify-center">
-        <div className="bg-gray-900 rounded-lg p-6 shadow-lg border border-neon-orange card-glow text-left w-full max-w-3xl">
-            <div className="mb-4 rounded-lg  overflow-hidden h-64 bg-black">
+    <div className="w-full h-full flex items-center justify-center p-4">
+       
+        <div className="bg-gray-900 rounded-lg p-6 shadow-lg border border-neon-orange card-glow text-left w-full max-w-2xl h-[550px] flex flex-col">
+            {/* Image/Video Container */}
+            <div className="mb-4 rounded-lg overflow-hidden h-56 flex-shrink-0 bg-black">
                 {project.video ? (
                     <video src={project.video} controls className="w-full h-full object-cover" />
                 ) : (
                     <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                 )}
             </div>
-            <h3 className="text-2xl font-bold text-neon-green mb-4">{project.title}</h3>
-            <p className="text-white mb-4">{project.description}</p>
-            <div className="flex flex-wrap gap-2 mb-3">
-                {project.tools.map((tool, i) => (
-                    <span key={i} className="inline-block bg-neon-green text-black px-2 py-1 rounded-full text-sm mr-2 mb-2">{tool}</span>
-                ))}
-            </div>
+
+            {/* Text Content Container - This section will grow to fill the remaining space. */}
+            <div className="flex flex-col flex-grow justify-between">
+                <div>
+                    <h3 className="text-xl font-bold text-neon-green mb-2">{project.title}</h3>
+                    <p className="text-white mb-3 text-base">{project.description}</p>
+                    <div className="flex flex-wrap">
+                        {project.tools.map((tool, i) => (
+                            <span key={i} className="inline-block bg-neon-green text-black px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">{tool}</span>
+                        ))}
+                    </div>
+                </div>
+
             <div className="flex justify-between items-center mt-4">
                 <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-blue hover:underline">
                     <Github className="w-5 h-5 mr-1" /> GitHub
@@ -34,6 +42,7 @@ const ProjectCard = ({ project }) => (
                 )}
             </div>
         </div>
+      </div>
     </div>
 );
 
@@ -52,7 +61,7 @@ export default function Projects() {
     return (
         <motion.div {...pageMotion} className="flex flex-col items-center px-4 w-full">
             <h2 className="text-5xl text-neon-orange font-semibold mb-12">Projects</h2>
-            <div className="w-full p-2"> 
+            <div className="w-full p-8"> 
                 <Carousel items={projectCards} />
             </div>
         </motion.div>

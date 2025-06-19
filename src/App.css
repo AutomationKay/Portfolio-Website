@@ -121,17 +121,98 @@ iframe {
   background-color: #262626;
 }
 
-
-/* Animation for tabs in Navbar */
-.nav-link-pulse {
-  animation: pulse-subtle 2.5s infinite ease-in-out;
+/* --- Glitch Effect for Sidebar Title --- */
+.glitch {
+    position: relative;
+    /* The glitch animation will run intermittently */
+    animation: glitch-fx 7s infinite linear;
 }
 
-@keyframes pulse-subtle {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a; /* Match sidebar bg */
+    overflow: hidden;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #e67e00;
+    animation: glitch-anim-1 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00b3b3;
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+    0%, 100% {
+        clip-path: inset(45% 0 50% 0);
+    }
+
+    25% {
+        clip-path: inset(0 0 10% 0);
+    }
+
+    50% {
+        clip-path: inset(80% 0 5% 0);
+    }
+
+    75% {
+        clip-path: inset(30% 0 60% 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0%, 100% {
+        clip-path: inset(5% 0 90% 0);
+    }
+
+    25% {
+        clip-path: inset(60% 0 30% 0);
+    }
+
+    50% {
+        clip-path: inset(15% 0 80% 0);
+    }
+
+    75% {
+        clip-path: inset(90% 0 5% 0);
+    }
+}
+
+/* --- Scan Line Effect for the Sidebar --- */
+.scan-line-container {
+    position: relative;
+    overflow: hidden; /* Important to contain the scan line */
+}
+
+/* This creates the animated line */
+.scan-line-container::after {
+    content: '';
+    position: absolute;
+    top: -10%; /* Start off-screen */
+    left: 0;
+    width: 100%;
+    height: 4px; /* Thickness of the scan line */
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    animation: scan-line-anim 3s infinite linear;
+}
+
+@keyframes scan-line-anim {
+    0% {
+        top: -10%;
+    }
+
+    100% {
+        top: 110%; /* End off-screen */
+    }
 }
