@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 import { pageMotion } from '../utils/pageMotion';
 import Carousel from '../components/Carousel';
 
