@@ -7,11 +7,11 @@ import Carousel from '../components/Carousel';
 const ProjectCard = ({ project }) => (
     <div className="w-full h-full flex items-center justify-center">
         <div className="bg-gray-900 rounded-lg p-6 shadow-lg border border-neon-orange card-glow text-left w-full max-w-3xl">
-            <div className="mb-4 rounded overflow-hidden">
+            <div className="mb-4 rounded-lg  overflow-hidden h-64 bg-black">
                 {project.video ? (
-                    <video src={project.video} controls className="w-full rounded-md" />
+                    <video src={project.video} controls className="w-full h-full object-cover" />
                 ) : (
-                    <img src={project.image} alt={project.title} className="w-full h-64 object-cover rounded-md" />
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                 )}
             </div>
             <h3 className="text-2xl font-bold text-neon-green mb-4">{project.title}</h3>
