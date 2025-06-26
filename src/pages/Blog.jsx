@@ -20,7 +20,7 @@ const BlogCard = ({ post }) => (
 export default function Blog() {
   const blogPosts = [
     { title: 'How I Built My MVP Prediction Model', snippet: 'Breaking down my approach to predicting NBA MVPs using public data...', url: 'https://medium.com/@yourusername/nba-mvp-model' },
-    { title: 'Building My Blood Pressure Tracker App', snippet: 'Architecture, challenges, and deployment lessons from my full-stack app...', url: 'https://medium.com/@yourusername/blood-pressure-app' },
+    { title: 'I found out I had high blood pressure. So I built an app using public data to track it.', snippet: 'Architecture, challenges, and deployment lessons from my full-stack app...', url: 'https://medium.com/@bartlettkamaal/i-found-out-i-had-high-blood-pressure-so-i-built-an-app-using-public-data-to-track-it-72b9b1f4aaf0' },
   ];
 
   const blogCards = blogPosts.map((post, index) => <BlogCard key={index} post={post} />);
