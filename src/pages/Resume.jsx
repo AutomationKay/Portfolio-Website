@@ -9,9 +9,10 @@ export default function Resume() {
 
       <div className="flex flex-col items-center w-full px-4 md:px-0">
         <iframe
+          className="w-full h-[90vh]"
           src="/resume.pdf"
           title="Resume"
-          className="w-full h-[90vh] border-4 border-neon-blue rounded-lg shadow-lg"
+          /* className="w-full h-[90vh] border-4 border-neon-blue rounded-lg shadow-lg" */
         ></iframe>
 
         <a
