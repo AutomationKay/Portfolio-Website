@@ -14,7 +14,7 @@ export default function About() {
           className="w-60 h-60 rounded-full object-cover border-4 border-neon-green shadow-lg" 
         />
 
-        <p className="text-xl md:text-2xl text-neon-blue max-w-3xl mb-10">
+        <p className="text-base md:text-xl text-neon-blue w-full max-w-3xl mb-10 leading-relaxed text-justify break-words">
           I’m Kamaal Bartlett — Software Engineer, Robotics Enthusiast, and Data Science Master's graduate.
                   I started out in Accounting and Finance, but my passion for experimenting with technology and problem-solving led me to dive into Computer Science.
 
