@@ -7,7 +7,7 @@ import Carousel from '../components/Carousel';
 const ProjectCard = ({ project }) => (
     <div className="w-full h-full flex items-center justify-center p-4">
        
-        <div className="bg-gray-900 rounded-lg p-6 shadow-lg border border-neon-orange card-glow w-full max-w-3xl flex flex-col gap-4">
+        <div className="bg-gray-900 rounded-lg p-6 shadow-lg border border-neon-orange card-glow w-full max-w-4xl flex flex-col gap-4">
             {/* Image/Video Container */}
             <div className="aspect-video w-full rounded-lg overflow-hidden bg-black">
                 {project.video ? (
