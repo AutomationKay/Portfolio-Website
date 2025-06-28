@@ -48,7 +48,7 @@ const ProjectCard = ({ project }) => (
 
 export default function Projects() {
     const allProjects = [
-        { title: 'NBA MVP Prediction', description: 'Logistic regression model predicting MVP likelihood.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/NBA_Pred', image: '/images/nba-mvp.png', tools: ['Python', 'Pandas', 'Scikit-learn'] },
+        { title: 'NBA Award Prediction', description: 'Machine Learning and Deep Learning models to predict NBA season results.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/NBA_Pred', liveapp: 'https://nba-predictions-fastapi.onrender.com', image: '/images/nba-mvp.png', tools: ['Python', 'Pandas', 'Scikit-learn'] },
         { title: 'Automated File Sorter', description: 'This script monitors a specified directory and automatically sorts files into subfolders by type.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/File%20Automation', image: '/images/financial.png', tools: ['Python', 'Time Series', 'Pandas'] },
         { title: 'Blood Pressure Tracker', description: 'Full-stack web app to track and visualize blood pressure with machine learning functionality.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/bp_tracker', liveapp: 'https://bp-tracker-app.onrender.com/',  image: '/images/blood-pressure.png', tools: ['Django', 'Postgre', 'SKlearn'] },
         { title: 'Autonomous Robot Demo', description: 'My robot driving around fully autonomously.', github: 'https://github.com/kamaal/robot-autonomy', video: '/videos/robot-demo.mp4', tools: ['ROS', 'OpenCV', 'Deep Learning'] },
