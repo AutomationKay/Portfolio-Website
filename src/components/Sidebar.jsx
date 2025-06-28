@@ -25,7 +25,10 @@ export default function Sidebar() {
                     alt="Kamaal Bartlett"
                     className="w-24 h-24 rounded-full object-cover border-4 border-neon-blue mb-4"
                 />
-                <h1 className="text-2xl font-bold text-white glitch" data-text="KAMAAL">KAMAAL</h1>
+                <h1 className="text-2xl font-bold text-white glitch" data-text="SYSNAV-01">SYSNAV-01</h1>
+                <p className="text-sm text-neon-blue tracking-widest uppercase font-mono flex items-center">
+                    &gt; NAV SYSTEM ACTIVE<span className="ml-1 blink">_</span>
+                </p>
             </div>
 
             {/* Navigation Links */}
