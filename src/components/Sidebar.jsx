@@ -17,7 +17,7 @@ export default function Sidebar() {
 
     return (
         // The sidebar is fixed to the left, full height, and has the scan-line effect.
-        <aside className="fixed top-0 left-0 z-10 h-screen w-64 bg-gray-900 text-slate-300 flex flex-col p-6 border-r border-gray-700 scan-line-container">
+        <aside className="fixed top-0 left-0 z-20 h-screen w-64 bg-gray-900 text-slate-300 flex flex-col p-6 border-r border-gray-700 scan-line-container">
             {/* Profile Section */}
             <div className="flex flex-col items-center mb-12">
                 <img
