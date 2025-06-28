@@ -14,8 +14,8 @@ export default function Carousel({ items }) {
   };
 
   return (
-    <div className="w-full max-w-4xl flex flex-col items-center">
-      <div className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden">
+    <div className="w-full flex flex-col items-center px-4">
+      <div className="relative w-full flex items-center justify-center overflow-visible py-8">
         <AnimatePresence initial={false}>
           <motion.div
             key={index}
