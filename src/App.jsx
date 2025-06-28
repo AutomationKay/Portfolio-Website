@@ -32,8 +32,8 @@ export default function App() {
       <div className = "min-h-screen bg-black text-white font-mono flex flex-col" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
         <Background />
         <Sidebar />
-        <main className="relative z-10 flex-grow w-full flex flex-col justify-center items-center px-4 md:px-8 pt-32 pb-12">
-          <div className="flex-grow p-8 md:p-12">
+        <main className="relative z-10 flex-grow w-full flex flex-col justify-center items-center pt-32 pb-12">
+          <div className="flex-grow w-full max-w-screen-2xl">
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Home />} />

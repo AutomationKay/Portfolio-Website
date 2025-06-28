@@ -7,9 +7,8 @@ export default function Resume() {
     <motion.div {...pageMotion} className="flex flex-col items-center px-4 py-12 w-full">
       <h2 className="text-5xl text-neon-orange font-semibold mb-8"></h2>
 
-      <div className="flex flex-col items-center w-full px-4 md:px-0">
-        <iframe
-          className="w-full h-[90vh]"
+      <div className="w-full max-w-screen-2xl mx-auto px-4">
+        <iframe className="w-full h-[90vh]" 
           src="/resume.pdf"
           title="Resume"
           /* className="w-full h-[90vh] border-4 border-neon-blue rounded-lg shadow-lg" */

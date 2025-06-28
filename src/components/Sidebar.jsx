@@ -20,11 +20,6 @@ export default function Sidebar() {
         <aside className="fixed top-0 left-0 z-20 h-screen w-64 bg-gray-900 text-slate-300 flex flex-col p-6 border-r border-gray-700 scan-line-container">
             {/* Profile Section */}
             <div className="flex flex-col items-center mb-12">
-                <img
-                    src="/images/portrait.jpg" // Make sure you have a portrait image here
-                    alt="Kamaal Bartlett"
-                    className="w-24 h-24 rounded-full object-cover border-4 border-neon-blue mb-4"
-                />
                 <h1 className="text-2xl font-bold text-white glitch" data-text="SYSNAV-01">SYSNAV-01</h1>
                 <p className="text-sm text-neon-blue tracking-widest uppercase font-mono flex items-center">
                     &gt; NAV SYSTEM ACTIVE<span className="ml-1 blink">_</span>
