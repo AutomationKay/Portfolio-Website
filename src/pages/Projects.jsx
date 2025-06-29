@@ -62,7 +62,7 @@ export default function Projects() {
         <motion.div {...pageMotion} className="flex flex-col items-center w-full px-4">
             <h2 className="text-5xl text-neon-orange font-semibold mb-12">Projects</h2>
             <div className="flex justify-center w-full">
-                <div className="w-full max-w-6xl px-4">        
+                <div className="ml-[256px] w-full max-w-[calc(100vw-256px)] px-4 overflow-hidden">        
                     <Carousel items={projectCards} />
                 </div>
             </div>
