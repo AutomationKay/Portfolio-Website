@@ -15,7 +15,7 @@ export default function Carousel({ items }) {
 
   return (
     <div className="w-full flex flex-col items-center px-4">
-      <div className="relative w-full max-w-5xl flex items-center justify-center overflow-visible py-8 mx-auto">
+      <div className="relative w-full max-w-5xl flex items-center justify-center overflow-visible py-8 min-h-[600px] mx-auto">
         <AnimatePresence initial={false}>
           <motion.div
             key={index}
@@ -23,7 +23,7 @@ export default function Carousel({ items }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -200 }}
             transition={{ duration: 0.3 }}
-            className="absolute w-full h-full"
+            className="w-full"
           >
             {items[index]}
           </motion.div>
