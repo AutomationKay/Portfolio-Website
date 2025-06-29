@@ -5,7 +5,7 @@ import { pageMotion } from '../utils/pageMotion';
 import Carousel from '../components/Carousel';
 
 const ProjectCard = ({ project }) => (
-    <div className="w-full h-full flex items-center justify-center p-4">
+    <div className="w-full max-w-6xl mx-auto px-4 py-12">
        
         <div className="bg-gray-900 rounded-lg p-6 shadow-lg border border-neon-orange card-glow w-full max-w-4xl flex flex-col gap-4">
             {/* Image/Video Container */}
