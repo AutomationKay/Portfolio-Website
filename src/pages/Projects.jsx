@@ -22,9 +22,11 @@ const ProjectCard = ({ project }) => (
                 <div>
                     <h3 className="text-xl font-bold text-neon-green mb-2">{project.title}</h3>
                     <p className="text-white mb-3 text-base">{project.description}</p>
-                    <div className="flex flex-wrap">
+                    <div className="flex flex-wrap gap-2">
                         {project.tools.map((tool, i) => (
-                            <span key={i} className="inline-block bg-neon-green text-black px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">{tool}</span>
+                            <span key={i} className="bg-neon-green text-black px-3 py-1 rounded-full text-xs font-semibold">
+                                {tool}
+                            </span>
                         ))}
                     </div>
                 </div>
