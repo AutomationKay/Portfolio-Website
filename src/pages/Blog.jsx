@@ -28,8 +28,10 @@ export default function Blog() {
   return (
     <motion.div {...pageMotion} className="flex flex-col items-center px-4 w-full">
           <h2 className="text-5xl text-neon-orange font-semibold mb-12">Blog</h2>
-      <div className="w-full p-1">
+      <div className="flex justify-center w-full">
+        <div className="w-full max-w-6xl px-4">
         <Carousel items={blogCards} />
+        </div>
       </div>
     </motion.div>
   );

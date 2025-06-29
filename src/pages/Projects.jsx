@@ -59,10 +59,12 @@ export default function Projects() {
     const projectCards = allProjects.map((project, index) => <ProjectCard key={index} project={project} />);
 
     return (
-        <motion.div {...pageMotion} className="flex flex-col items-center px-4 w-full">
+        <motion.div {...pageMotion} className="flex flex-col items-center w-full px-4">
             <h2 className="text-5xl text-neon-orange font-semibold mb-12">Projects</h2>
-            <div className="w-full p-8"> 
-                <Carousel items={projectCards} />
+            <div className="flex justify-center w-full">
+                <div className="w-full max-w-6xl px-4">        
+                    <Carousel items={projectCards} />
+                </div>
             </div>
         </motion.div>
     );
