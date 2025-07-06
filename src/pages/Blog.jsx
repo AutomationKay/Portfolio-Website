@@ -21,6 +21,7 @@ export default function Blog() {
   const blogPosts = [
     { title: 'Predicting NBA Award Winners: From Scraping to Deployment', snippet: 'Breaking down my approach to predicting NBA MVPs using public data...', url: 'https://medium.com/@bartlettkamaal/predicting-nba-award-winners-from-scraping-to-deployment-bdec6e6e585c' },
     { title: 'I found out I had high blood pressure. So I built an app using public data to track it.', snippet: 'Architecture, challenges, and deployment lessons from my full-stack app...', url: 'https://medium.com/@bartlettkamaal/i-found-out-i-had-high-blood-pressure-so-i-built-an-app-using-public-data-to-track-it-72b9b1f4aaf0' },
+    { title: 'Using the classic games I grew up on to train AI Agents', snippet: 'If you were born in the 1990s then there is a good chance you know the character Sonic, and if you are reading this then you know about AI.', url: 'https://medium.com/@bartlettkamaal/' },
   ];
 
   const blogCards = blogPosts.map((post, index) => <BlogCard key={index} post={post} />);
