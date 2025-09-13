@@ -51,10 +51,10 @@ const ProjectCard = ({ project }) => (
 export default function Projects() {
     const allProjects = [
         { title: 'NBA Award Prediction', description: 'Machine Learning and Deep Learning models to predict NBA season results.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/NBA_Pred', liveapp: 'https://nba-predictions-fastapi.onrender.com/docs', image: '/images/nba-mvp.png', tools: ['Python', '|', 'Pandas', '|', 'Scikit-learn'] },
+        { title: 'Autonomous Robot Navigation', description: 'Raspberry Pi enabled robot that is able to detect and follow humans', github: 'https://github.com/AutomationKay/General-Projects/tree/main/Autonomous_Robot_Navigation', video: '/video/following_robot.mp4', tools: ['CNN', '|', 'OpenCV', '|', 'YOLO'] },
         { title: 'Reinforcement Learning using Sonic', description: 'RL Project intended to train an AI agent to play Sonic the Hedgehog', github: 'https://github.com/AutomationKay/General-Projects/tree/main/Sonic_RL_Project', image: '/images/sonic_log.gif', tools: ['Python', '|', 'Tensorflow', '|', 'Deep Learning'] },
         { title: 'Automated File Sorter', description: 'This script monitors a specified directory and automatically sorts files into subfolders by type.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/File%20Automation', image: '/images/financial.png', tools: ['Python','|', 'Time Series','|', 'Pandas'] },
         { title: 'Blood Pressure Tracker', description: 'Full-stack web app to track and visualize blood pressure with machine learning functionality.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/bp_tracker', liveapp: 'https://bp-tracker-app.onrender.com/',  image: '/images/blood-pressure.png', tools: ['Django', '|', 'Postgre', '|', 'SKlearn'] },
-        { title: 'Autonomous Robot Demo', description: 'My robot driving around fully autonomously.', github: 'https://github.com/kamaal/robot-autonomy', video: '/videos/robot-demo.mp4', tools: ['ROS', '|', 'OpenCV', '|', 'Deep Learning'] },
         { title: 'SLAM Analysis', description: 'Building a map of an unknown location while simulataneously localizing within that environment', github: 'https://github.com/AutomationKay/General-Projects/tree/main/SLAM%20Analysis', image: '/images/financial.png', tools: ['CNN', '|', 'Docker', '|', 'ROS2'] }
     ];
 

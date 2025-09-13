@@ -75,7 +75,7 @@ export default function App() {
           transition={{ delay: 0.5, duration: 1 }} 
           className="text-xl md:text-2xl mt-4 text-neon-blue"
         >
-          Software Engineer | Robotics Enthusiast
+          Data Scientist | Robotics Enthusiast
         </motion.p>
         <motion.button 
           initial={{ opacity: 0 }} 
