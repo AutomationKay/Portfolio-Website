@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Medium  } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText  } from 'lucide-react';
 import { pageMotion } from '../utils/pageMotion'; 
 
 export default function Contact() {
@@ -8,7 +8,7 @@ export default function Contact() {
     { icon: <Linkedin className="w-16 h-16" />, label: 'LinkedIn', url: 'https://linkedin.com/in/kamaal-bartlett/' },
     { icon: <Github className="w-16 h-16" />, label: 'GitHub', url: 'https://github.com/automationkay' },
     { icon: <Mail className="w-16 h-16" />, label: 'Email', url: 'mailto:bartlettkamaal@gmail.com' },
-    { icon: <Medium className="w-16 h-16" />, label: 'Medium', url: 'https://medium.com/@bartlettkamaal' },
+    { icon: <FileText className="w-16 h-16" />, label: 'Medium', url: 'https://medium.com/@bartlettkamaal' },
   ];
 
   return (
