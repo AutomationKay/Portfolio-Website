@@ -33,33 +33,37 @@ export default function App() {
       <div className="min-h-screen bg-black text-white font-mono overflow-x-hidden" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
         <Background />
         
-        {/* Desktop Sidebar - Always render, but hide on mobile with CSS */}
-        <Sidebar />
+        {/* Desktop Sidebar - Uses CSS classes to show/hide */}
+        <div className="sidebar-desktop">
+          <Sidebar />
+        </div>
         
-        {/* Mobile/Tablet Navbar - Always render, but hide on desktop with CSS */}
-        <Navbar />
+        {/* Mobile/Tablet Navbar - Uses CSS classes to show/hide */}
+        <div className="navbar-mobile">
+          <Navbar />
+        </div>
         
-        {/* Main content area with conditional desktop margin */}
-        <main className="relative z-10 flex-grow w-full pt-16 lg:pt-8 lg:ml-64 px-4 sm:px-6 lg:px-8 pb-6">
-          <div className="w-full max-w-7xl mx-auto">
-            <AnimatePresence mode="wait">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/resume" element={<Resume />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<Navigate to="/" />} />
-              </Routes>
-            </AnimatePresence>
-          </div>
-        </main>
-        
-        {/* Footer with same margin as main content */}
-        <footer className="lg:ml-64">
+        {/* Main content area - Proper desktop margin and mobile responsive */}
+        <div className="lg:ml-64">
+          <main className="relative z-10 w-full pt-16 lg:pt-8 px-4 sm:px-6 lg:px-8 pb-6">
+            <div className="w-full max-w-7xl mx-auto">
+              <AnimatePresence mode="wait">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/resume" element={<Resume />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+              </AnimatePresence>
+            </div>
+          </main>
+          
+          {/* Footer with same margin as main content */}
           <Footer />
-        </footer>
+        </div>
       </div>
     );
   }

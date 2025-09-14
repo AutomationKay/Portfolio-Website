@@ -16,7 +16,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="fixed top-0 left-0 z-20 h-screen w-64 bg-gray-900 text-slate-300 flex flex-col p-6 border-r border-gray-700 scan-line-container sidebar-desktop">
+        <aside className="fixed top-0 left-0 z-20 h-screen w-64 bg-gray-900 text-slate-300 flex flex-col p-6 border-r border-gray-700 scan-line-container">
             {/* Profile Section */}
             <div className="flex flex-col items-center mb-12">
                 <h1 className="text-2xl font-bold text-white glitch break-words text-center leading-tight" data-text="SYSNAV-01">
@@ -47,13 +47,6 @@ export default function Sidebar() {
                     ))}
                 </ul>
             </nav>
-
-            {/* Footer info */}
-            <div className="mt-auto pt-6 border-t border-gray-700">
-                <p className="text-xs text-gray-400 text-center break-words">
-                    Desktop Navigation
-                </p>
-            </div>
         </aside>
     );
 }

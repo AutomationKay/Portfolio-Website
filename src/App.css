@@ -4,10 +4,10 @@ body {
   color: #0ff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
-/* Enable better text wrapping and hyphenation */
+/* Better text wrapping and hyphenation */
 .break-words {
   word-wrap: break-word;
   word-break: break-word;
@@ -16,6 +16,12 @@ body {
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Prevent layout shift on small screens */
+* {
+  box-sizing: border-box;
 }
 
 /* Neon Text Colors */
@@ -73,9 +79,10 @@ body {
   100% { background-position: 25px 25px; opacity: 0.6; }
 }
 
-/* Glow Card Hover Effect */
+/* Card Glow Effect */
 .card-glow {
   transition: all 0.3s ease;
+  max-width: 100%;
 }
 
 .card-glow:hover {
@@ -98,13 +105,13 @@ body {
   to { opacity: 0.3; }
 }
 
-/* Resume PDF iframe style (clean rounded frame) */
+/* Resume PDF iframe style */
 iframe {
   border-radius: 8px;
   border: 2px solid #00b3b3;
 }
 
-/* Subtle page transition */
+/* Page transitions */
 .fade-enter {
   opacity: 0;
   transform: translateY(10px);
@@ -123,7 +130,7 @@ iframe {
   transition: opacity 0.3s, transform 0.3s;
 }
 
-/* Additional Background Tone Adjustments */
+/* Background colors */
 .bg-gray-900 {
   background-color: #1b1b1b;
 }
@@ -132,7 +139,7 @@ iframe {
   background-color: #262626;
 }
 
-/* --- Glitch Effect for Sidebar Title --- */
+/* Glitch Effect for Sidebar Title */
 .glitch {
     position: relative;
     animation: glitch-fx 7s infinite linear;
@@ -163,36 +170,20 @@ iframe {
 }
 
 @keyframes glitch-anim-1 {
-    0%, 100% {
-        clip-path: inset(45% 0 50% 0);
-    }
-    25% {
-        clip-path: inset(0 0 10% 0);
-    }
-    50% {
-        clip-path: inset(80% 0 5% 0);
-    }
-    75% {
-        clip-path: inset(30% 0 60% 0);
-    }
+    0%, 100% { clip-path: inset(45% 0 50% 0); }
+    25% { clip-path: inset(0 0 10% 0); }
+    50% { clip-path: inset(80% 0 5% 0); }
+    75% { clip-path: inset(30% 0 60% 0); }
 }
 
 @keyframes glitch-anim-2 {
-    0%, 100% {
-        clip-path: inset(5% 0 90% 0);
-    }
-    25% {
-        clip-path: inset(60% 0 30% 0);
-    }
-    50% {
-        clip-path: inset(15% 0 80% 0);
-    }
-    75% {
-        clip-path: inset(90% 0 5% 0);
-    }
+    0%, 100% { clip-path: inset(5% 0 90% 0); }
+    25% { clip-path: inset(60% 0 30% 0); }
+    50% { clip-path: inset(15% 0 80% 0); }
+    75% { clip-path: inset(90% 0 5% 0); }
 }
 
-/* --- Scan Line Effect for the Sidebar --- */
+/* Scan Line Effect for Sidebar */
 .scan-line-container {
     position: relative;
     overflow: hidden;
@@ -211,51 +202,146 @@ iframe {
 }
 
 @keyframes scan-line-anim {
-    0% {
-        top: -10%;
-    }
-    100% {
-        top: 110%;
-    }
+    0% { top: -10%; }
+    100% { top: 110%; }
 }
 
-/* Style for navigation */
+/* Navigation cursor blink */
 .blink {
   animation: blink-cursor 1s step-start infinite;
 }
 
 @keyframes blink-cursor {
-  50% {
-    opacity: 0;
+  50% { opacity: 0; }
+}
+
+/* Button hover effects */
+.button-nav-style {
+  background: #1f2937;
+  color: #00b3b3;
+  border-radius: 9999px;
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+}
+
+.button-nav-style:hover {
+  background: #00b3b3;
+  color: #000000;
+  transform: scale(1.1);
+}
+
+.button-nav-style.active {
+  background: #00b3b3;
+  color: #000000;
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Ensure images don't break layout */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Aspect ratio support */
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+@supports not (aspect-ratio: 16 / 9) {
+  .aspect-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+  }
+  
+  .aspect-video > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 
-/* --- Enhanced Mobile Responsiveness --- */
+/* ===== RESPONSIVE LAYOUT SYSTEM ===== */
 
-/* Prevent layout shift on small screens */
-* {
-  box-sizing: border-box;
+/* Desktop Layout (1024px and up) */
+@media (min-width: 1024px) {
+  /* Show sidebar, hide navbar */
+  .sidebar-desktop {
+    display: flex !important;
+  }
+  
+  .navbar-mobile {
+    display: none !important;
+  }
+  
+  /* CRITICAL: Ensure content never goes behind sidebar */
+  .lg\:ml-64 {
+    margin-left: 16rem !important;
+    width: calc(100% - 16rem) !important;
+    max-width: calc(100% - 16rem) !important;
+  }
+  
+  /* Force main content to respect sidebar boundary */
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Ensure footer also respects sidebar */
+  footer {
+    width: 100% !important;
+  }
 }
 
-/* Mobile text scaling */
+/* Mobile/Tablet Layout (1023px and below) */
+@media (max-width: 1023px) {
+  /* Hide sidebar, show navbar */
+  .sidebar-desktop {
+    display: none !important;
+  }
+  
+  .navbar-mobile {
+    display: block !important;
+  }
+  
+  /* Remove all margins on mobile */
+  .lg\:ml-64 {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  footer {
+    width: 100% !important;
+  }
+}
+
+/* Mobile text and button scaling */
 @media (max-width: 640px) {
   body {
     font-size: 16px;
   }
   
-  /* Smaller text shadows on mobile for better readability */
   .text-neon-green,
   .text-neon-blue,
   .text-neon-orange {
     text-shadow: 0 0 2px currentColor, 0 0 4px currentColor;
   }
   
-  /* Better line height for mobile */
   .leading-relaxed {
     line-height: 1.75;
   }
   
-  /* Better button scaling on mobile */
   .btn-terminal {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
@@ -273,224 +359,18 @@ iframe {
   }
 }
 
-/* Better spacing for mobile */
+/* Mobile spacing improvements */
 @media (max-width: 768px) {
   .card-glow:hover {
     transform: translateY(-4px) scale(1.01);
     box-shadow: 0 0 8px #00b3b3, 0 0 16px #00b3b3;
   }
   
-  /* Better mobile carousel spacing */
   .carousel-container {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
-}
-
-/* Desktop Sidebar Layout Fixes */
-@media (min-width: 1024px) {
-  /* Ensure sidebar stays fixed on desktop */
-  .sidebar-desktop {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 16rem; /* 64 * 0.25rem = 16rem */
-    height: 100vh;
-    z-index: 20;
-  }
   
-  /* Main content margin for desktop */
-  .content-with-sidebar {
-    margin-left: 16rem; /* Same as sidebar width */
-  }
-}
-
-/* Mobile Layout Fixes */
-@media (max-width: 1023px) {
-  /* Hide sidebar on mobile */
-  .sidebar-desktop {
-    display: none !important;
-  }
-  
-  /* Remove margin on mobile */
-  .content-with-sidebar {
-    margin-left: 0 !important;
-  }
-  
-  /* Ensure navbar is visible */
-  .navbar-mobile {
-    display: block !important;
-  }
-  
-  .lg\:ml-64 {
-    margin-left: 0 !important;
-  }
-  
-  .fixed.left-0.z-20 {
-    display: none;
-  }
-}
-
-/* Button hover effects consistency */
-.button-nav-style {
-  background: #1f2937; /* bg-gray-800 */
-  color: #00b3b3; /* text-neon-blue */
-  border-radius: 9999px; /* rounded-full */
-  padding: 0.5rem 0.75rem; /* px-3 py-2 */
-  font-weight: 600; /* font-semibold */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: scale(1);
-}
-
-.button-nav-style:hover {
-  background: #00b3b3; /* bg-neon-blue */
-  color: #000000; /* text-black */
-  transform: scale(1.1);
-}
-
-.button-nav-style.active {
-  background: #00b3b3; /* bg-neon-blue */
-  color: #000000; /* text-black */
-  transform: scale(1.05);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-/* Ensure images don't break layout */
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Fix for aspect ratio on older browsers */
-.aspect-video {
-  aspect-ratio: 16 / 9;
-}
-
-@supports not (aspect-ratio: 16 / 9) {
-  .aspect-video {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 ratio */
-    height: 0;
-  }
-  
-  .aspect-video > * {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-
-/* Desktop: Show sidebar, hide navbar */
-@media (min-width: 1024px) {
-  /* Show sidebar on desktop */
-  .sidebar-desktop {
-    display: flex !important;
-  }
-  
-  /* Hide navbar on desktop */
-  .navbar-mobile {
-    display: none !important;
-  }
-}
-
-/* Mobile/Tablet: Hide sidebar, show navbar */
-@media (max-width: 1023px) {
-  /* Hide sidebar on mobile/tablet */
-  .sidebar-desktop {
-    display: none !important;
-  }
-  
-  /* Show navbar on mobile/tablet */
-  .navbar-mobile {
-    display: block !important;
-  }
-  
-  /* Remove desktop margin on mobile */
-  .lg\:ml-64 {
-    margin-left: 0 !important;
-  }
-}
-
-/* Ensure proper overflow handling */
-body, html {
-  overflow-x: hidden;
-}
-
-/* Better text wrapping */
-.break-words {
-  word-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  overflow-wrap: break-word;
-}
-
-/* Button hover effects consistency */
-.button-nav-style {
-  background: #1f2937; /* bg-gray-800 */
-  color: #00b3b3; /* text-neon-blue */
-  border-radius: 9999px; /* rounded-full */
-  padding: 0.5rem 0.75rem; /* px-3 py-2 */
-  font-weight: 600; /* font-semibold */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: scale(1);
-}
-
-.button-nav-style:hover {
-  background: #00b3b3; /* bg-neon-blue */
-  color: #000000; /* text-black */
-  transform: scale(1.1);
-}
-
-.button-nav-style.active {
-  background: #00b3b3; /* bg-neon-blue */
-  color: #000000; /* text-black */
-  transform: scale(1.05);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-/* Improved responsive text scaling */
-@media (max-width: 640px) {
-  /* Smaller text shadows on mobile for better readability */
-  .text-neon-green,
-  .text-neon-blue,
-  .text-neon-orange {
-    text-shadow: 0 0 2px currentColor, 0 0 4px currentColor;
-  }
-  
-  /* Better line height for mobile */
-  .leading-relaxed {
-    line-height: 1.75;
-  }
-}
-
-/* Card improvements */
-.card-glow {
-  transition: all 0.3s ease;
-}
-
-.card-glow:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 0 16px #00b3b3, 0 0 32px rgba(0, 179, 179, 0.3);
-}
-
-/* Ensure images don't break layout */
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Fix for compact carousel spacing */
-.carousel-compact {
-  min-height: auto;
-}
-
-/* Better mobile button spacing */
-@media (max-width: 768px) {
   .btn-terminal {
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
