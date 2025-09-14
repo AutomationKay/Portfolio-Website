@@ -30,38 +30,36 @@ export default function App() {
 
   if (enteredPortfolio) {
     return (
-      <div className="min-h-screen bg-black text-white font-mono flex flex-col overflow-x-hidden" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
+      <div className="min-h-screen bg-black text-white font-mono overflow-x-hidden" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
         <Background />
         
-        {/* Desktop Sidebar - visible only on lg screens and up */}
-        <div className="hidden lg:block">
-          <Sidebar />
-        </div>
+        {/* Desktop Sidebar - Always render, but hide on mobile with CSS */}
+        <Sidebar />
         
-        {/* Mobile/Tablet Navbar - visible only below lg screens */}
-        <div className="block lg:hidden">
-          <Navbar />
-        </div>
+        {/* Mobile/Tablet Navbar - Always render, but hide on desktop with CSS */}
+        <Navbar />
         
-        {/* Main content wrapper with proper desktop sidebar margin */}
-        <div className="flex-1 flex flex-col min-h-screen lg:ml-64">
-          <main className="relative z-10 flex-grow w-full flex flex-col justify-start items-center pt-20 lg:pt-8 pb-6 sm:pb-8 md:pb-12 px-4 sm:px-6 lg:px-8">
-            <div className="flex-grow w-full max-w-7xl mx-auto">
-              <AnimatePresence mode="wait">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/resume" element={<Resume />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="*" element={<Navigate to="/" />} />
-                </Routes>
-              </AnimatePresence>
-            </div>
-          </main>
+        {/* Main content area with conditional desktop margin */}
+        <main className="relative z-10 flex-grow w-full pt-16 lg:pt-8 lg:ml-64 px-4 sm:px-6 lg:px-8 pb-6">
+          <div className="w-full max-w-7xl mx-auto">
+            <AnimatePresence mode="wait">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<Navigate to="/" />} />
+              </Routes>
+            </AnimatePresence>
+          </div>
+        </main>
+        
+        {/* Footer with same margin as main content */}
+        <footer className="lg:ml-64">
           <Footer />
-        </div>
+        </footer>
       </div>
     );
   }

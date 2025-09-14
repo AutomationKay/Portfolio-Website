@@ -381,3 +381,118 @@ img, video {
     height: 100%;
   }
 }
+
+
+/* Desktop: Show sidebar, hide navbar */
+@media (min-width: 1024px) {
+  /* Show sidebar on desktop */
+  .sidebar-desktop {
+    display: flex !important;
+  }
+  
+  /* Hide navbar on desktop */
+  .navbar-mobile {
+    display: none !important;
+  }
+}
+
+/* Mobile/Tablet: Hide sidebar, show navbar */
+@media (max-width: 1023px) {
+  /* Hide sidebar on mobile/tablet */
+  .sidebar-desktop {
+    display: none !important;
+  }
+  
+  /* Show navbar on mobile/tablet */
+  .navbar-mobile {
+    display: block !important;
+  }
+  
+  /* Remove desktop margin on mobile */
+  .lg\:ml-64 {
+    margin-left: 0 !important;
+  }
+}
+
+/* Ensure proper overflow handling */
+body, html {
+  overflow-x: hidden;
+}
+
+/* Better text wrapping */
+.break-words {
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* Button hover effects consistency */
+.button-nav-style {
+  background: #1f2937; /* bg-gray-800 */
+  color: #00b3b3; /* text-neon-blue */
+  border-radius: 9999px; /* rounded-full */
+  padding: 0.5rem 0.75rem; /* px-3 py-2 */
+  font-weight: 600; /* font-semibold */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+}
+
+.button-nav-style:hover {
+  background: #00b3b3; /* bg-neon-blue */
+  color: #000000; /* text-black */
+  transform: scale(1.1);
+}
+
+.button-nav-style.active {
+  background: #00b3b3; /* bg-neon-blue */
+  color: #000000; /* text-black */
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Improved responsive text scaling */
+@media (max-width: 640px) {
+  /* Smaller text shadows on mobile for better readability */
+  .text-neon-green,
+  .text-neon-blue,
+  .text-neon-orange {
+    text-shadow: 0 0 2px currentColor, 0 0 4px currentColor;
+  }
+  
+  /* Better line height for mobile */
+  .leading-relaxed {
+    line-height: 1.75;
+  }
+}
+
+/* Card improvements */
+.card-glow {
+  transition: all 0.3s ease;
+}
+
+.card-glow:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 0 16px #00b3b3, 0 0 32px rgba(0, 179, 179, 0.3);
+}
+
+/* Ensure images don't break layout */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for compact carousel spacing */
+.carousel-compact {
+  min-height: auto;
+}
+
+/* Better mobile button spacing */
+@media (max-width: 768px) {
+  .btn-terminal {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}

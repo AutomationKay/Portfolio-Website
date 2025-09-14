@@ -17,10 +17,10 @@ const MultiProjectCard = ({ projectGroup }) => {
     };
 
     return (
-        <div className="w-full max-w-6xl mx-auto px-4 py-6 sm:py-8 lg:py-12">
+        <div className="w-full max-w-6xl mx-auto px-4 py-4 sm:py-6">
             <div className="bg-gray-900 rounded-lg p-4 sm:p-6 shadow-lg border border-neon-orange card-glow w-full flex flex-col gap-4">
                 {/* Project Category Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
                     <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-neon-orange break-words">
                         {projectGroup.category}
                     </h2>
@@ -30,14 +30,14 @@ const MultiProjectCard = ({ projectGroup }) => {
                 </div>
 
                 {/* PROJECT SELECTION BUTTONS - STYLED LIKE NAVIGATION ARROWS */}
-                <div className="mb-4">
-                    <p className="text-sm text-gray-300 mb-3">Select a project:</p>
+                <div className="mb-3">
+                    <p className="text-sm text-gray-300 mb-2">Select a project:</p>
                     <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                         {projectGroup.projects.map((project, index) => (
                             <button
                                 key={index}
                                 onClick={() => setActiveProject(index)}
-                                className={`px-3 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-110 text-sm sm:text-base break-words ${
+                                className={`px-3 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-110 text-sm break-words ${
                                     index === activeProject 
                                         ? 'bg-neon-blue text-black shadow-lg scale-105' 
                                         : 'bg-gray-800 text-neon-blue hover:bg-neon-blue hover:text-black'
@@ -50,15 +50,15 @@ const MultiProjectCard = ({ projectGroup }) => {
                 </div>
 
                 {/* Navigation Arrows */}
-                <div className="flex justify-between items-center mb-4">
+                <div className="flex justify-between items-center mb-3">
                     <button
                         onClick={prevProject}
                         className="p-2 text-neon-blue hover:text-neon-green transition-colors flex-shrink-0 rounded-full hover:bg-gray-800 transform hover:scale-110"
                         aria-label="Previous project"
                     >
-                        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <ChevronLeft className="w-5 h-5" />
                     </button>
-                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-neon-green text-center flex-1 px-2 break-words leading-tight">
+                    <h3 className="text-base sm:text-lg font-bold text-neon-green text-center flex-1 px-2 break-words leading-tight">
                         {currentProject.title}
                     </h3>
                     <button
@@ -66,12 +66,12 @@ const MultiProjectCard = ({ projectGroup }) => {
                         className="p-2 text-neon-blue hover:text-neon-green transition-colors flex-shrink-0 rounded-full hover:bg-gray-800 transform hover:scale-110"
                         aria-label="Next project"
                     >
-                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <ChevronRight className="w-5 h-5" />
                     </button>
                 </div>
 
-                {/* Media Container */}
-                <div className="w-full rounded-lg overflow-hidden bg-black" style={{ aspectRatio: '16/9' }}>
+                {/* Media Container - REDUCED HEIGHT */}
+                <div className="w-full rounded-lg overflow-hidden bg-black h-48 sm:h-56 lg:h-64">
                     {currentProject.video ? (
                         <video 
                             key={currentProject.title}
@@ -94,29 +94,29 @@ const MultiProjectCard = ({ projectGroup }) => {
                     )}
                 </div>
 
-                {/* Project Content */}
+                {/* Project Content - COMPACT */}
                 <div className="flex flex-col flex-grow justify-between">
                     <div>
-                        <p className="text-white mb-4 text-sm sm:text-base leading-relaxed break-words hyphens-auto">
+                        <p className="text-white mb-3 text-sm leading-relaxed break-words hyphens-auto">
                             {currentProject.description}
                         </p>
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        <div className="flex flex-wrap gap-1 mb-3">
                             {currentProject.tools.map((tool, i) => (
-                                <span key={i} className="bg-neon-green text-black px-2 sm:px-3 py-1 rounded-full text-xs font-semibold">
+                                <span key={i} className="bg-neon-green text-black px-2 py-1 rounded-full text-xs font-semibold">
                                     {tool}
                                 </span>
                             ))}
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mt-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mt-3">
                         <a 
                             href={currentProject.github} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="flex items-center text-neon-blue hover:text-neon-green hover:underline text-sm sm:text-base transition-colors"
+                            className="flex items-center text-neon-blue hover:text-neon-green hover:underline text-sm transition-colors"
                         >
-                            <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
+                            <Github className="w-4 h-4 mr-2 flex-shrink-0" /> 
                             View on GitHub
                         </a>
 
@@ -125,9 +125,9 @@ const MultiProjectCard = ({ projectGroup }) => {
                                 href={currentProject.liveapp} 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                className="flex items-center text-neon-green hover:text-neon-blue hover:underline text-sm sm:text-base transition-colors"
+                                className="flex items-center text-neon-green hover:text-neon-blue hover:underline text-sm transition-colors"
                             >
-                                <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
+                                <ExternalLink className="w-4 h-4 mr-2 flex-shrink-0" /> 
                                 Live Demo
                             </a>
                         )}
@@ -139,9 +139,10 @@ const MultiProjectCard = ({ projectGroup }) => {
 };
 
 const ProjectCard = ({ project }) => (
-    <div className="w-full max-w-6xl mx-auto px-4 py-6 sm:py-8 lg:py-12">
+    <div className="w-full max-w-6xl mx-auto px-4 py-4 sm:py-6">
         <div className="bg-gray-900 rounded-lg p-4 sm:p-6 shadow-lg border border-neon-orange card-glow w-full flex flex-col gap-4">
-            <div className="w-full rounded-lg overflow-hidden bg-black" style={{ aspectRatio: '16/9' }}>
+            {/* Media Container - REDUCED HEIGHT */}
+            <div className="w-full rounded-lg overflow-hidden bg-black h-48 sm:h-56 lg:h-64">
                 {project.video ? (
                     <video 
                         src={project.video} 
@@ -165,29 +166,29 @@ const ProjectCard = ({ project }) => (
 
             <div className="flex flex-col flex-grow justify-between">
                 <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-neon-green mb-3 break-words leading-tight">
+                    <h3 className="text-lg sm:text-xl font-bold text-neon-green mb-2 break-words leading-tight">
                         {project.title}
                     </h3>
-                    <p className="text-white mb-4 text-sm sm:text-base leading-relaxed break-words hyphens-auto">
+                    <p className="text-white mb-3 text-sm leading-relaxed break-words hyphens-auto">
                         {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1">
                         {project.tools.map((tool, i) => (
-                            <span key={i} className="bg-neon-green text-black px-2 sm:px-3 py-1 rounded-full text-xs font-semibold">
+                            <span key={i} className="bg-neon-green text-black px-2 py-1 rounded-full text-xs font-semibold">
                                 {tool}
                             </span>
                         ))}
                     </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mt-6">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mt-4">
                     <a 
                         href={project.github} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="flex items-center text-neon-blue hover:text-neon-green hover:underline text-sm sm:text-base transition-colors"
+                        className="flex items-center text-neon-blue hover:text-neon-green hover:underline text-sm transition-colors"
                     >
-                        <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
+                        <Github className="w-4 h-4 mr-2 flex-shrink-0" /> 
                         View on GitHub
                     </a>
 
@@ -196,9 +197,9 @@ const ProjectCard = ({ project }) => (
                             href={project.liveapp} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="flex items-center text-neon-green hover:text-neon-blue hover:underline text-sm sm:text-base transition-colors"
+                            className="flex items-center text-neon-green hover:text-neon-blue hover:underline text-sm transition-colors"
                         >
-                            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
+                            <ExternalLink className="w-4 h-4 mr-2 flex-shrink-0" /> 
                             Live Demo
                         </a>
                     )}
@@ -286,15 +287,13 @@ export default function Projects() {
     ];
 
     return (
-        <motion.div {...pageMotion} className="flex flex-col items-center w-full px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-neon-orange font-semibold mb-8 sm:mb-10 lg:mb-12 text-center leading-tight">
+        <motion.div {...pageMotion} className="flex flex-col items-center w-full">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-neon-orange font-semibold mb-4 sm:mb-6 text-center leading-tight">
                 Projects
             </h2>
             
-            <div className="w-full max-w-7xl mx-auto">
-                <div className="w-full px-2 sm:px-4 overflow-hidden">
-                    <Carousel items={projectCards} />
-                </div>
+            <div className="w-full">
+                <Carousel items={projectCards} />
             </div>
         </motion.div>
     );
