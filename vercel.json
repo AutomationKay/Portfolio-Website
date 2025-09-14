@@ -1,16 +1,16 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/images/(.*)",
-      "dest": "/images/$1"
+      "source": "/images/(.*)",
+      "destination": "/images/$1"
     },
     {
-      "src": "/video/(.*)",
-      "dest": "/video/$1"
+      "source": "/video/(.*)",
+      "destination": "/video/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/"
     }
   ]
 }
