@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, FileText  } from 'lucide-react';
 import { pageMotion } from '../utils/pageMotion'; 
 
-export function Contact() {
+export default function Contact() {
   const contactInfo = [
     { icon: <Linkedin className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16" />, label: 'LinkedIn', url: 'https://linkedin.com/in/kamaal-bartlett/' },
     { icon: <Github className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16" />, label: 'GitHub', url: 'https://github.com/automationkay' },

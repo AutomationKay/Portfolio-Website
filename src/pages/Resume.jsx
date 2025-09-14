@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { pageMotion } from '../utils/pageMotion';
 
-export function Resume() {
+export default function Resume() {
   return (
     <motion.div {...pageMotion} className="flex flex-col items-center px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 w-full">
       <h2 className="text-3xl sm:text-4xl lg:text-5xl text-neon-orange font-semibold mb-6 sm:mb-8 text-center">
