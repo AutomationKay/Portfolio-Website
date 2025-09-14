@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { pageMotion } from '../utils/pageMotion';
+import Carousel from '../components/Carousel';
 
 const MultiProjectCard = ({ projectGroup }) => {
     const [activeProject, setActiveProject] = useState(0);
