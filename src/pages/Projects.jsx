@@ -17,12 +17,14 @@ const MultiProjectCard = ({ projectGroup }) => {
     };
 
     return (
-        <div className="w-full max-w-6xl mx-auto px-4 py-12">
-            <div className="bg-gray-900 rounded-lg p-6 shadow-lg border border-neon-orange card-glow w-full max-w-4xl flex flex-col gap-4">
+        <div className="w-full max-w-4xl mx-auto px-4 py-6 sm:py-8 lg:py-12">
+            <div className="bg-gray-900 rounded-lg p-4 sm:p-6 shadow-lg border border-neon-orange card-glow w-full flex flex-col gap-4">
                 {/* Project Category Header */}
-                <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-2xl font-bold text-neon-orange">{projectGroup.category}</h2>
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                    <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-neon-orange">
+                        {projectGroup.category}
+                    </h2>
+                    <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
                         <span>{activeProject + 1} / {projectGroup.projects.length}</span>
                     </div>
                 </div>
@@ -33,7 +35,7 @@ const MultiProjectCard = ({ projectGroup }) => {
                         <button
                             key={index}
                             onClick={() => setActiveProject(index)}
-                            className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
+                            className={`px-2 sm:px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
                                 index === activeProject 
                                     ? 'bg-neon-green text-black' 
                                     : 'bg-gray-700 text-white hover:bg-gray-600'
@@ -48,18 +50,18 @@ const MultiProjectCard = ({ projectGroup }) => {
                 <div className="flex justify-between items-center mb-4">
                     <button
                         onClick={prevProject}
-                        className="p-2 text-neon-blue hover:text-neon-green transition-colors"
+                        className="p-2 text-neon-blue hover:text-neon-green transition-colors flex-shrink-0"
                     >
-                        <ChevronLeft className="w-6 h-6" />
+                        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
-                    <h3 className="text-xl font-bold text-neon-green text-center flex-1">
+                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-neon-green text-center flex-1 px-2">
                         {currentProject.title}
                     </h3>
                     <button
                         onClick={nextProject}
-                        className="p-2 text-neon-blue hover:text-neon-green transition-colors"
+                        className="p-2 text-neon-blue hover:text-neon-green transition-colors flex-shrink-0"
                     >
-                        <ChevronRight className="w-6 h-6" />
+                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
                 </div>
 
@@ -67,7 +69,7 @@ const MultiProjectCard = ({ projectGroup }) => {
                 <div className="aspect-video w-full rounded-lg overflow-hidden bg-black">
                     {currentProject.video ? (
                         <video 
-                            key={currentProject.title} // Force reload when project changes
+                            key={currentProject.title}
                             src={currentProject.video} 
                             controls 
                             className="w-full h-full object-cover"
@@ -90,24 +92,26 @@ const MultiProjectCard = ({ projectGroup }) => {
                 {/* Project Content */}
                 <div className="flex flex-col flex-grow justify-between">
                     <div>
-                        <p className="text-white mb-3 text-base">{currentProject.description}</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        <p className="text-white mb-3 text-sm sm:text-base leading-relaxed">
+                            {currentProject.description}
+                        </p>
+                        <div className="flex flex-wrap gap-1 sm:gap-2 mb-4">
                             {currentProject.tools.map((tool, i) => (
-                                <span key={i} className="bg-neon-green text-black px-3 py-1 rounded-full text-xs font-semibold">
+                                <span key={i} className="bg-neon-green text-black px-2 sm:px-3 py-1 rounded-full text-xs font-semibold">
                                     {tool}
                                 </span>
                             ))}
                         </div>
                     </div>
 
-                    <div className="flex justify-between items-center mt-4">
-                        <a href={currentProject.github} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-blue hover:underline">
-                            <Github className="w-5 h-5 mr-1" /> GitHub
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mt-4">
+                        <a href={currentProject.github} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-blue hover:underline text-sm sm:text-base">
+                            <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-1" /> GitHub
                         </a>
 
                         {currentProject.liveapp && (
-                            <a href={currentProject.liveapp} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-green hover:underline">
-                                <ExternalLink className="w-5 h-5 mr-1" /> Live App
+                            <a href={currentProject.liveapp} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-green hover:underline text-sm sm:text-base">
+                                <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-1" /> Live App
                             </a>
                         )}
                     </div>
@@ -117,10 +121,9 @@ const MultiProjectCard = ({ projectGroup }) => {
     );
 };
 
-// Regular single project card (unchanged)
 const ProjectCard = ({ project }) => (
-    <div className="w-full max-w-6xl mx-auto px-4 py-12">
-        <div className="bg-gray-900 rounded-lg p-6 shadow-lg border border-neon-orange card-glow w-full max-w-4xl flex flex-col gap-4">
+    <div className="w-full max-w-4xl mx-auto px-4 py-6 sm:py-8 lg:py-12">
+        <div className="bg-gray-900 rounded-lg p-4 sm:p-6 shadow-lg border border-neon-orange card-glow w-full flex flex-col gap-4">
             <div className="aspect-video w-full rounded-lg overflow-hidden bg-black">
                 {project.video ? (
                     <video 
@@ -145,25 +148,25 @@ const ProjectCard = ({ project }) => (
 
             <div className="flex flex-col flex-grow justify-between">
                 <div>
-                    <h3 className="text-xl font-bold text-neon-green mb-2">{project.title}</h3>
-                    <p className="text-white mb-3 text-base">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-neon-green mb-2">{project.title}</h3>
+                    <p className="text-white mb-3 text-sm sm:text-base leading-relaxed">{project.description}</p>
+                    <div className="flex flex-wrap gap-1 sm:gap-2">
                         {project.tools.map((tool, i) => (
-                            <span key={i} className="bg-neon-green text-black px-3 py-1 rounded-full text-xs font-semibold">
+                            <span key={i} className="bg-neon-green text-black px-2 sm:px-3 py-1 rounded-full text-xs font-semibold">
                                 {tool}
                             </span>
                         ))}
                     </div>
                 </div>
 
-                <div className="flex justify-between items-center mt-4">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-blue hover:underline">
-                        <Github className="w-5 h-5 mr-1" /> GitHub
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mt-4">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-blue hover:underline text-sm sm:text-base">
+                        <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-1" /> GitHub
                     </a>
 
                     {project.liveapp && (
-                        <a href={project.liveapp} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-green hover:underline">
-                            <ExternalLink className="w-5 h-5 mr-1" /> Live App
+                        <a href={project.liveapp} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-green hover:underline text-sm sm:text-base">
+                            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-1" /> Live App
                         </a>
                     )}
                 </div>
@@ -173,7 +176,6 @@ const ProjectCard = ({ project }) => (
 );
 
 export default function Projects() {
-    // Group your RL projects together
     const reinforcementLearningGroup = {
         category: "Reinforcement Learning Projects",
         projects: [
@@ -212,7 +214,6 @@ export default function Projects() {
         ]
     };
 
-    // Other individual projects
     const individualProjects = [
         { 
             title: 'NBA Award Prediction', 
@@ -246,17 +247,20 @@ export default function Projects() {
         }
     ];
 
-    // Create cards array with the RL group first, then individual projects
     const projectCards = [
         <MultiProjectCard key="rl-group" projectGroup={reinforcementLearningGroup} />,
         ...individualProjects.map((project, index) => <ProjectCard key={`individual-${index}`} project={project} />)
     ];
 
     return (
-        <motion.div {...pageMotion} className="flex flex-col items-center w-full px-4">
-            <h2 className="text-5xl text-neon-orange font-semibold mb-12">Projects</h2>
-            <div className="flex justify-center w-full">
-                <div className="ml-[256px] w-full max-w-[calc(100vw-256px)] px-4 overflow-hidden">        
+        <motion.div {...pageMotion} className="flex flex-col items-center w-full px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-neon-orange font-semibold mb-8 sm:mb-10 lg:mb-12 text-center">
+                Projects
+            </h2>
+            
+            {/* Responsive container */}
+            <div className="w-full max-w-7xl mx-auto">
+                <div className="w-full px-2 sm:px-4 overflow-hidden">
                     <Carousel items={projectCards} />
                 </div>
             </div>
