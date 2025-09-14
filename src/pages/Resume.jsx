@@ -1,3 +1,7 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { pageMotion } from '../utils/pageMotion';
+
 export function Resume() {
   return (
     <motion.div {...pageMotion} className="flex flex-col items-center px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 w-full">
