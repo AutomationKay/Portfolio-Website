@@ -11,11 +11,26 @@ const ProjectCard = ({ project }) => (
             {/* Image/Video Container */}
             <div className="aspect-video w-full rounded-lg overflow-hidden bg-black">
                 {project.video ? (
-                    <video src={project.video} controls className="w-full h-full object-cover" />
+                    <video 
+                        src={project.video} 
+                        controls 
+                        className="w-full h-full object-cover"
+                        preload="metadata"
+                        onError={(e) => console.error('Video failed to load:', project.video)}
+                    >
+                        <source src={project.video} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
                 ) : (
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover"
+                        onError={(e) => console.error('Image failed to load:', project.image)}
+                    />
                 )}
             </div>
+
 
             {/* Text Content Container - This section will grow to fill the remaining space. */}
             <div className="flex flex-col flex-grow justify-between">
@@ -50,12 +65,12 @@ const ProjectCard = ({ project }) => (
 
 export default function Projects() {
     const allProjects = [
-        { title: 'NBA Award Prediction', description: 'Machine Learning and Deep Learning models to predict NBA season results.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/NBA_Pred', liveapp: 'https://nba-predictions-fastapi.onrender.com/docs', image: '/images/nba-mvp.png', tools: ['Python', '|', 'Pandas', '|', 'Scikit-learn'] },
-        { title: 'Autonomous Robot Navigation', description: 'Raspberry Pi enabled robot that is able to detect and follow humans', github: 'https://github.com/AutomationKay/General-Projects/tree/main/Autonomous_Robot_Navigation', video: '/video/following_robot.mp4', tools: ['CNN', '|', 'OpenCV', '|', 'YOLO'] },
-        { title: 'Reinforcement Learning using Sonic', description: 'RL Project intended to train an AI agent to play Sonic the Hedgehog', github: 'https://github.com/AutomationKay/General-Projects/tree/main/Sonic_RL_Project', image: '/images/sonic_log.gif', tools: ['Python', '|', 'Tensorflow', '|', 'Deep Learning'] },
-        { title: 'Automated File Sorter', description: 'This script monitors a specified directory and automatically sorts files into subfolders by type.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/File%20Automation', image: '/images/financial.png', tools: ['Python','|', 'Time Series','|', 'Pandas'] },
-        { title: 'Blood Pressure Tracker', description: 'Full-stack web app to track and visualize blood pressure with machine learning functionality.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/bp_tracker', liveapp: 'https://bp-tracker-app.onrender.com/',  image: '/images/blood-pressure.png', tools: ['Django', '|', 'Postgre', '|', 'SKlearn'] },
-        { title: 'SLAM Analysis', description: 'Building a map of an unknown location while simulataneously localizing within that environment', github: 'https://github.com/AutomationKay/General-Projects/tree/main/SLAM%20Analysis', image: '/images/financial.png', tools: ['CNN', '|', 'Docker', '|', 'ROS2'] }
+        { title: 'NBA Award Prediction', description: 'Machine Learning and Deep Learning models to predict NBA season results.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/NBA_Pred', liveapp: 'https://nba-predictions-fastapi.onrender.com/docs', image: 'public/images/nba-mvp.png', tools: ['Python', '|', 'Pandas', '|', 'Scikit-learn'] },
+        { title: 'Autonomous Robot Navigation', description: 'Raspberry Pi enabled robot that is able to detect and follow humans', github: 'https://github.com/AutomationKay/General-Projects/tree/main/Autonomous_Robot_Navigation', video: 'public/video/following_robot.mp4', tools: ['CNN', '|', 'OpenCV', '|', 'YOLO'] },
+        { title: 'Reinforcement Learning using Sonic', description: 'RL Project intended to train an AI agent to play Sonic the Hedgehog', github: 'https://github.com/AutomationKay/General-Projects/tree/main/Sonic_RL_Project', image: 'public/images/sonic_log.gif', tools: ['Python', '|', 'Tensorflow', '|', 'Deep Learning'] },
+        { title: 'Automated File Sorter', description: 'This script monitors a specified directory and automatically sorts files into subfolders by type.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/File%20Automation', image: 'public/images/financial.png', tools: ['Python','|', 'Time Series','|', 'Pandas'] },
+        { title: 'Blood Pressure Tracker', description: 'Full-stack web app to track and visualize blood pressure with machine learning functionality.', github: 'https://github.com/AutomationKay/General-Projects/tree/main/bp_tracker', liveapp: 'https://bp-tracker-app.onrender.com/',  image: 'public/images/blood-pressure.png', tools: ['Django', '|', 'Postgre', '|', 'SKlearn'] },
+        { title: 'SLAM Analysis', description: 'Building a map of an unknown location while simulataneously localizing within that environment', github: 'https://github.com/AutomationKay/General-Projects/tree/main/SLAM%20Analysis', image: 'public/images/financial.png', tools: ['CNN', '|', 'Docker', '|', 'ROS2'] }
     ];
 
     const projectCards = allProjects.map((project, index) => <ProjectCard key={index} project={project} />);
