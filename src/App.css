@@ -15,6 +15,7 @@ body {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 /* Neon Text Colors */
@@ -78,8 +79,8 @@ body {
 }
 
 .card-glow:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 0 16px #00b3b3, 0 0 32px #00b3b3;
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 0 16px #00b3b3, 0 0 32px rgba(0, 179, 179, 0.3);
 }
 
 /* LED blinking indicator */
@@ -129,25 +130,6 @@ iframe {
 
 .bg-gray-800 {
   background-color: #262626;
-}
-
-/* --- Responsive Text Scaling --- */
-@media (max-width: 640px) {
-  body {
-    font-size: 16px;
-  }
-  
-  .text-neon-green,
-  .text-neon-blue,
-  .text-neon-orange {
-    text-shadow: 0 0 2px currentColor, 0 0 4px currentColor;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
 }
 
 /* --- Glitch Effect for Sidebar Title --- */
@@ -255,22 +237,25 @@ iframe {
   box-sizing: border-box;
 }
 
-/* Better spacing for mobile */
-@media (max-width: 768px) {
-  .card-glow:hover {
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 0 8px #00b3b3, 0 0 16px #00b3b3;
-  }
-}
-
-/* Ensure images don't overflow */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Better button scaling on mobile */
+/* Mobile text scaling */
 @media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+  
+  /* Smaller text shadows on mobile for better readability */
+  .text-neon-green,
+  .text-neon-blue,
+  .text-neon-orange {
+    text-shadow: 0 0 2px currentColor, 0 0 4px currentColor;
+  }
+  
+  /* Better line height for mobile */
+  .leading-relaxed {
+    line-height: 1.75;
+  }
+  
+  /* Better button scaling on mobile */
   .btn-terminal {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
@@ -278,42 +263,121 @@ img {
   }
 }
 
-/* Improved text readability on small screens */
 @media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  
   .leading-relaxed {
     line-height: 1.7;
   }
+}
+
+/* Better spacing for mobile */
+@media (max-width: 768px) {
+  .card-glow:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 0 8px #00b3b3, 0 0 16px #00b3b3;
+  }
   
-  .break-words {
-    word-break: break-word;
-    overflow-wrap: break-word;
+  /* Better mobile carousel spacing */
+  .carousel-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
 
-@media (max-width: 1024px) {
+/* Desktop Sidebar Layout Fixes */
+@media (min-width: 1024px) {
+  /* Ensure sidebar stays fixed on desktop */
+  .sidebar-desktop {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 16rem; /* 64 * 0.25rem = 16rem */
+    height: 100vh;
+    z-index: 20;
+  }
+  
+  /* Main content margin for desktop */
+  .content-with-sidebar {
+    margin-left: 16rem; /* Same as sidebar width */
+  }
+}
+
+/* Mobile Layout Fixes */
+@media (max-width: 1023px) {
+  /* Hide sidebar on mobile */
+  .sidebar-desktop {
+    display: none !important;
+  }
+  
+  /* Remove margin on mobile */
+  .content-with-sidebar {
+    margin-left: 0 !important;
+  }
+  
+  /* Ensure navbar is visible */
+  .navbar-mobile {
+    display: block !important;
+  }
+  
   .lg\:ml-64 {
     margin-left: 0 !important;
   }
-}
-
-/* Better text wrapping */
-.break-words {
-  word-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  overflow-wrap: break-word;
-}
-
-/* Prevent horizontal scroll */
-body, html {
-  overflow-x: hidden;
-}
-
-/* Mobile sidebar fix */
-@media (max-width: 1024px) {
+  
   .fixed.left-0.z-20 {
     display: none;
+  }
+}
+
+/* Button hover effects consistency */
+.button-nav-style {
+  background: #1f2937; /* bg-gray-800 */
+  color: #00b3b3; /* text-neon-blue */
+  border-radius: 9999px; /* rounded-full */
+  padding: 0.5rem 0.75rem; /* px-3 py-2 */
+  font-weight: 600; /* font-semibold */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+}
+
+.button-nav-style:hover {
+  background: #00b3b3; /* bg-neon-blue */
+  color: #000000; /* text-black */
+  transform: scale(1.1);
+}
+
+.button-nav-style.active {
+  background: #00b3b3; /* bg-neon-blue */
+  color: #000000; /* text-black */
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Ensure images don't break layout */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for aspect ratio on older browsers */
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+@supports not (aspect-ratio: 16 / 9) {
+  .aspect-video {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+  }
+  
+  .aspect-video > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }

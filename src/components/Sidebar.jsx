@@ -16,26 +16,29 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="fixed top-0 left-0 z-20 h-screen w-64 bg-gray-900 text-slate-300 flex flex-col p-4 lg:p-6 border-r border-gray-700 scan-line-container">
+        <aside className="fixed top-0 left-0 z-20 h-screen w-64 bg-gray-900 text-slate-300 flex flex-col p-6 border-r border-gray-700 scan-line-container sidebar-desktop">
             {/* Profile Section */}
-            <div className="flex flex-col items-center mb-8 lg:mb-12">
-                <h1 className="text-xl lg:text-2xl font-bold text-white glitch break-words text-center" data-text="SYSNAV-01">
+            <div className="flex flex-col items-center mb-12">
+                <h1 className="text-2xl font-bold text-white glitch break-words text-center leading-tight" data-text="SYSNAV-01">
                     SYSNAV-01
                 </h1>
-                <p className="text-xs lg:text-sm text-neon-blue tracking-widest uppercase font-mono flex items-center text-center break-words">
+                <p className="text-sm text-neon-blue tracking-widest uppercase font-mono flex items-center text-center break-words mt-2">
                     &gt; NAV SYSTEM ACTIVE<span className="ml-1 blink">_</span>
                 </p>
             </div>
 
             {/* Navigation Links */}
             <nav className="flex-1">
-                <ul className="flex flex-col gap-y-2">
+                <ul className="flex flex-col gap-y-3">
                     {tabs.map((tab) => (
                         <li key={tab.path}>
                             <Link
                                 to={tab.path}
-                                className={`flex items-center gap-x-3 px-3 lg:px-4 py-2 lg:py-3 rounded-md text-base lg:text-lg font-semibold transition-colors duration-200 hover:bg-neon-blue hover:text-black break-words
-                                ${activeTab === tab.path ? 'bg-neon-blue text-black' : 'text-slate-300'}`}
+                                className={`flex items-center gap-x-4 px-4 py-3 rounded-md text-lg font-semibold transition-all duration-300 hover:bg-neon-blue hover:text-black transform hover:scale-105 break-words
+                                ${activeTab === tab.path 
+                                    ? 'bg-neon-blue text-black shadow-lg scale-105' 
+                                    : 'text-slate-300 hover:shadow-md'
+                                }`}
                             >
                                 <span className="flex-shrink-0">{tab.icon}</span>
                                 <span className="truncate">{tab.label}</span>
@@ -44,6 +47,13 @@ export default function Sidebar() {
                     ))}
                 </ul>
             </nav>
+
+            {/* Footer info */}
+            <div className="mt-auto pt-6 border-t border-gray-700">
+                <p className="text-xs text-gray-400 text-center break-words">
+                    Desktop Navigation
+                </p>
+            </div>
         </aside>
     );
 }

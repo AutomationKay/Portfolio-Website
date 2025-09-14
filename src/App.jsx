@@ -33,33 +33,35 @@ export default function App() {
       <div className="min-h-screen bg-black text-white font-mono flex flex-col overflow-x-hidden" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
         <Background />
         
-        {/* Desktop Sidebar - hidden on mobile/tablet */}
+        {/* Desktop Sidebar - visible only on lg screens and up */}
         <div className="hidden lg:block">
           <Sidebar />
         </div>
         
-        {/* Mobile/Tablet Navbar - hidden on desktop */}
+        {/* Mobile/Tablet Navbar - visible only below lg screens */}
         <div className="block lg:hidden">
           <Navbar />
         </div>
         
-        {/* Main content - responsive margins */}
-        <main className="relative z-10 flex-grow w-full flex flex-col justify-start items-center pt-16 lg:pt-8 pb-6 sm:pb-8 md:pb-12 px-4 sm:px-6 lg:px-8 lg:ml-64">
-          <div className="flex-grow w-full max-w-7xl mx-auto">
-            <AnimatePresence mode="wait">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/resume" element={<Resume />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<Navigate to="/" />} />
-              </Routes>
-            </AnimatePresence>
-          </div>
-        </main>
-        <Footer />
+        {/* Main content wrapper with proper desktop sidebar margin */}
+        <div className="flex-1 flex flex-col min-h-screen lg:ml-64">
+          <main className="relative z-10 flex-grow w-full flex flex-col justify-start items-center pt-20 lg:pt-8 pb-6 sm:pb-8 md:pb-12 px-4 sm:px-6 lg:px-8">
+            <div className="flex-grow w-full max-w-7xl mx-auto">
+              <AnimatePresence mode="wait">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/resume" element={<Resume />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+              </AnimatePresence>
+            </div>
+          </main>
+          <Footer />
+        </div>
       </div>
     );
   }
