@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Sidebar from './components/Sidebar';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -31,8 +32,19 @@ export default function App() {
     return (
       <div className="min-h-screen bg-black text-white font-mono flex flex-col overflow-x-hidden" style={{ fontFamily: "'Orbitron', 'Roboto Mono', monospace" }}>
         <Background />
-        <Sidebar />
-        <main className="relative z-10 flex-grow w-full flex flex-col justify-start items-center pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-6 sm:pb-8 md:pb-12 px-4 sm:px-6 lg:px-8">
+        
+        {/* Desktop Sidebar - hidden on mobile/tablet */}
+        <div className="hidden lg:block">
+          <Sidebar />
+        </div>
+        
+        {/* Mobile/Tablet Navbar - hidden on desktop */}
+        <div className="block lg:hidden">
+          <Navbar />
+        </div>
+        
+        {/* Main content - responsive margins */}
+        <main className="relative z-10 flex-grow w-full flex flex-col justify-start items-center pt-16 lg:pt-8 pb-6 sm:pb-8 md:pb-12 px-4 sm:px-6 lg:px-8 lg:ml-64">
           <div className="flex-grow w-full max-w-7xl mx-auto">
             <AnimatePresence mode="wait">
               <Routes>

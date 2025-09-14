@@ -1,10 +1,20 @@
-
 body {
   font-family: 'Orbitron', 'Roboto Mono', monospace;
   font-size: 18px;
   color: #0ff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Enable better text wrapping and hyphenation */
+.break-words {
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
 }
 
 /* Neon Text Colors */
@@ -121,10 +131,28 @@ iframe {
   background-color: #262626;
 }
 
+/* --- Responsive Text Scaling --- */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+  
+  .text-neon-green,
+  .text-neon-blue,
+  .text-neon-orange {
+    text-shadow: 0 0 2px currentColor, 0 0 4px currentColor;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
+
 /* --- Glitch Effect for Sidebar Title --- */
 .glitch {
     position: relative;
-    /* The glitch animation will run intermittently */
     animation: glitch-fx 7s infinite linear;
 }
 
@@ -136,7 +164,7 @@ iframe {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #1a1a1a; /* Match sidebar bg */
+    background: #1a1a1a;
     overflow: hidden;
 }
 
@@ -156,15 +184,12 @@ iframe {
     0%, 100% {
         clip-path: inset(45% 0 50% 0);
     }
-
     25% {
         clip-path: inset(0 0 10% 0);
     }
-
     50% {
         clip-path: inset(80% 0 5% 0);
     }
-
     75% {
         clip-path: inset(30% 0 60% 0);
     }
@@ -174,15 +199,12 @@ iframe {
     0%, 100% {
         clip-path: inset(5% 0 90% 0);
     }
-
     25% {
         clip-path: inset(60% 0 30% 0);
     }
-
     50% {
         clip-path: inset(15% 0 80% 0);
     }
-
     75% {
         clip-path: inset(90% 0 5% 0);
     }
@@ -191,17 +213,16 @@ iframe {
 /* --- Scan Line Effect for the Sidebar --- */
 .scan-line-container {
     position: relative;
-    overflow: hidden; /* Important to contain the scan line */
+    overflow: hidden;
 }
 
-/* This creates the animated line */
 .scan-line-container::after {
     content: '';
     position: absolute;
-    top: -10%; /* Start off-screen */
+    top: -10%;
     left: 0;
     width: 100%;
-    height: 4px; /* Thickness of the scan line */
+    height: 4px;
     background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
     animation: scan-line-anim 3s infinite linear;
@@ -211,9 +232,8 @@ iframe {
     0% {
         top: -10%;
     }
-
     100% {
-        top: 110%; /* End off-screen */
+        top: 110%;
     }
 }
 
@@ -225,5 +245,47 @@ iframe {
 @keyframes blink-cursor {
   50% {
     opacity: 0;
+  }
+}
+
+/* --- Enhanced Mobile Responsiveness --- */
+
+/* Prevent layout shift on small screens */
+* {
+  box-sizing: border-box;
+}
+
+/* Better spacing for mobile */
+@media (max-width: 768px) {
+  .card-glow:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 0 8px #00b3b3, 0 0 16px #00b3b3;
+  }
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better button scaling on mobile */
+@media (max-width: 640px) {
+  .btn-terminal {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Improved text readability on small screens */
+@media (max-width: 480px) {
+  .leading-relaxed {
+    line-height: 1.7;
+  }
+  
+  .break-words {
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 }

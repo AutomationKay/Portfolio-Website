@@ -17,56 +17,61 @@ const MultiProjectCard = ({ projectGroup }) => {
     };
 
     return (
-        <div className="w-full max-w-4xl mx-auto px-4 py-6 sm:py-8 lg:py-12">
+        <div className="w-full max-w-6xl mx-auto px-4 py-6 sm:py-8 lg:py-12">
             <div className="bg-gray-900 rounded-lg p-4 sm:p-6 shadow-lg border border-neon-orange card-glow w-full flex flex-col gap-4">
                 {/* Project Category Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
-                    <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-neon-orange">
+                    <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-neon-orange break-words">
                         {projectGroup.category}
                     </h2>
                     <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
-                        <span>{activeProject + 1} / {projectGroup.projects.length}</span>
+                        <span>{activeProject + 1} of {projectGroup.projects.length} projects</span>
                     </div>
                 </div>
 
-                {/* Project Tabs */}
-                <div className="flex flex-wrap gap-2 mb-4 border-b border-gray-700 pb-3">
-                    {projectGroup.projects.map((project, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setActiveProject(index)}
-                            className={`px-2 sm:px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
-                                index === activeProject 
-                                    ? 'bg-neon-green text-black' 
-                                    : 'bg-gray-700 text-white hover:bg-gray-600'
-                            }`}
-                        >
-                            {project.shortTitle}
-                        </button>
-                    ))}
+                {/* Project Selection Buttons - NEW FEATURE */}
+                <div className="mb-4">
+                    <p className="text-sm text-gray-300 mb-3">Select a project:</p>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        {projectGroup.projects.map((project, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setActiveProject(index)}
+                                className={`px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 break-words hyphens-auto ${
+                                    index === activeProject 
+                                        ? 'bg-neon-green text-black shadow-lg transform scale-105' 
+                                        : 'bg-gray-700 text-white hover:bg-gray-600 hover:transform hover:scale-102'
+                                }`}
+                            >
+                                {project.shortTitle}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Navigation Arrows */}
                 <div className="flex justify-between items-center mb-4">
                     <button
                         onClick={prevProject}
-                        className="p-2 text-neon-blue hover:text-neon-green transition-colors flex-shrink-0"
+                        className="p-2 text-neon-blue hover:text-neon-green transition-colors flex-shrink-0 rounded-full hover:bg-gray-800"
+                        aria-label="Previous project"
                     >
                         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
-                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-neon-green text-center flex-1 px-2">
+                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-neon-green text-center flex-1 px-2 break-words leading-tight">
                         {currentProject.title}
                     </h3>
                     <button
                         onClick={nextProject}
-                        className="p-2 text-neon-blue hover:text-neon-green transition-colors flex-shrink-0"
+                        className="p-2 text-neon-blue hover:text-neon-green transition-colors flex-shrink-0 rounded-full hover:bg-gray-800"
+                        aria-label="Next project"
                     >
                         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
                 </div>
 
-                {/* Image/Video Container */}
-                <div className="aspect-video w-full rounded-lg overflow-hidden bg-black">
+                {/* Media Container */}
+                <div className="w-full rounded-lg overflow-hidden bg-black" style={{ aspectRatio: '16/9' }}>
                     {currentProject.video ? (
                         <video 
                             key={currentProject.title}
@@ -92,10 +97,10 @@ const MultiProjectCard = ({ projectGroup }) => {
                 {/* Project Content */}
                 <div className="flex flex-col flex-grow justify-between">
                     <div>
-                        <p className="text-white mb-3 text-sm sm:text-base leading-relaxed">
+                        <p className="text-white mb-4 text-sm sm:text-base leading-relaxed break-words hyphens-auto">
                             {currentProject.description}
                         </p>
-                        <div className="flex flex-wrap gap-1 sm:gap-2 mb-4">
+                        <div className="flex flex-wrap gap-2 mb-4">
                             {currentProject.tools.map((tool, i) => (
                                 <span key={i} className="bg-neon-green text-black px-2 sm:px-3 py-1 rounded-full text-xs font-semibold">
                                     {tool}
@@ -105,13 +110,25 @@ const MultiProjectCard = ({ projectGroup }) => {
                     </div>
 
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mt-4">
-                        <a href={currentProject.github} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-blue hover:underline text-sm sm:text-base">
-                            <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-1" /> GitHub
+                        <a 
+                            href={currentProject.github} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="flex items-center text-neon-blue hover:text-neon-green hover:underline text-sm sm:text-base transition-colors"
+                        >
+                            <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
+                            View on GitHub
                         </a>
 
                         {currentProject.liveapp && (
-                            <a href={currentProject.liveapp} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-green hover:underline text-sm sm:text-base">
-                                <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-1" /> Live App
+                            <a 
+                                href={currentProject.liveapp} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="flex items-center text-neon-green hover:text-neon-blue hover:underline text-sm sm:text-base transition-colors"
+                            >
+                                <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
+                                Live Demo
                             </a>
                         )}
                     </div>
@@ -122,9 +139,9 @@ const MultiProjectCard = ({ projectGroup }) => {
 };
 
 const ProjectCard = ({ project }) => (
-    <div className="w-full max-w-4xl mx-auto px-4 py-6 sm:py-8 lg:py-12">
+    <div className="w-full max-w-6xl mx-auto px-4 py-6 sm:py-8 lg:py-12">
         <div className="bg-gray-900 rounded-lg p-4 sm:p-6 shadow-lg border border-neon-orange card-glow w-full flex flex-col gap-4">
-            <div className="aspect-video w-full rounded-lg overflow-hidden bg-black">
+            <div className="w-full rounded-lg overflow-hidden bg-black" style={{ aspectRatio: '16/9' }}>
                 {project.video ? (
                     <video 
                         src={project.video} 
@@ -148,9 +165,13 @@ const ProjectCard = ({ project }) => (
 
             <div className="flex flex-col flex-grow justify-between">
                 <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-neon-green mb-2">{project.title}</h3>
-                    <p className="text-white mb-3 text-sm sm:text-base leading-relaxed">{project.description}</p>
-                    <div className="flex flex-wrap gap-1 sm:gap-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-neon-green mb-3 break-words leading-tight">
+                        {project.title}
+                    </h3>
+                    <p className="text-white mb-4 text-sm sm:text-base leading-relaxed break-words hyphens-auto">
+                        {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
                         {project.tools.map((tool, i) => (
                             <span key={i} className="bg-neon-green text-black px-2 sm:px-3 py-1 rounded-full text-xs font-semibold">
                                 {tool}
@@ -159,14 +180,26 @@ const ProjectCard = ({ project }) => (
                     </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mt-4">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-blue hover:underline text-sm sm:text-base">
-                        <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-1" /> GitHub
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mt-6">
+                    <a 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="flex items-center text-neon-blue hover:text-neon-green hover:underline text-sm sm:text-base transition-colors"
+                    >
+                        <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
+                        View on GitHub
                     </a>
 
                     {project.liveapp && (
-                        <a href={project.liveapp} target="_blank" rel="noopener noreferrer" className="flex items-center text-neon-green hover:underline text-sm sm:text-base">
-                            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-1" /> Live App
+                        <a 
+                            href={project.liveapp} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="flex items-center text-neon-green hover:text-neon-blue hover:underline text-sm sm:text-base transition-colors"
+                        >
+                            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
+                            Live Demo
                         </a>
                     )}
                 </div>
@@ -181,7 +214,7 @@ export default function Projects() {
         projects: [
             {
                 title: 'Sonic the Hedgehog 3 RL Agent',
-                shortTitle: 'Sonic3',
+                shortTitle: 'Sonic 3',
                 description: 'RL Project intended to train an AI agent to play Sonic the Hedgehog using Deep Q-Networks.',
                 github: 'https://github.com/AutomationKay/RL_Sonic_3',
                 image: 'https://github.com/AutomationKay/RL_Sonic_3/blob/master/images/sonic_running.gif',
@@ -189,7 +222,7 @@ export default function Projects() {
             },
             {
                 title: 'Hollow Knight RL Agent',
-                shortTitle: 'HK',
+                shortTitle: 'Hollow Knight',
                 description: 'Deep Q-Learning implementation along with Computer Vision for defeating bosses.',
                 github: 'https://github.com/AutomationKay/RL_HK',
                 image: '/images/breakout.png',
@@ -197,7 +230,7 @@ export default function Projects() {
             },
             {
                 title: 'Sonic Adventure DX RL Agent',
-                shortTitle: 'SonicDX',
+                shortTitle: 'Sonic DX',
                 description: 'RL Project for training an AI Agent to complete levels as fast as possible.',
                 github: 'https://github.com/AutomationKay/RL_Sonic_DX',
                 image: '/images/cartpole.png',
@@ -205,7 +238,7 @@ export default function Projects() {
             },
             {
                 title: 'Kingdom Hearts 2 RL',
-                shortTitle: 'KH2',
+                shortTitle: 'Kingdom Hearts 2',
                 description: 'Training an agent using PPO, SAC and TD3 algorithms to complete boss fights.',
                 github: 'https://github.com/AutomationKay/RL_KH2',
                 video: '/video/lunar_lander.mp4',
@@ -254,11 +287,10 @@ export default function Projects() {
 
     return (
         <motion.div {...pageMotion} className="flex flex-col items-center w-full px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-neon-orange font-semibold mb-8 sm:mb-10 lg:mb-12 text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-neon-orange font-semibold mb-8 sm:mb-10 lg:mb-12 text-center leading-tight">
                 Projects
             </h2>
             
-            {/* Responsive container */}
             <div className="w-full max-w-7xl mx-auto">
                 <div className="w-full px-2 sm:px-4 overflow-hidden">
                     <Carousel items={projectCards} />

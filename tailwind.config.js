@@ -4,11 +4,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'slate-900': '#111827', // New darker background
-        'slate-800': '#1f2937', // New card/element background
-        'slate-300': '#d1d5db', // New primary text color (off-white)
-        'electric-blue': '#38bdf8', // New primary accent color
-        'electric-orange': '#f97316', // New secondary accent
+        'slate-900': '#111827',
+        'slate-800': '#1f2937', 
+        'slate-300': '#d1d5db',
+        'electric-blue': '#38bdf8',
+        'electric-orange': '#f97316',
+        // Add the neon colors that are used throughout the app
+        'neon-green': '#00b300',
+        'neon-blue': '#00b3b3', 
+        'neon-orange': '#e67e00',
+      },
+      screens: {
+        'xs': '475px',
       },
     },
   },
