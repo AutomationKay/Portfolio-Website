@@ -9,8 +9,9 @@ export default function Home() {
         Welcome!
       </h1>
       <div className="max-w-5xl mx-auto">
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neon-blue leading-relaxed break-words hyphens-auto">
-          I'm Kamaal Bartlett — a Master's degree educated Data Scientist, Robotics Lover, current Reinforcement Learning explorer and avid basketball watcher. 
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neon-blue leading-relaxed break-words">
+          I'm Kamaal Bartlett — a Master's degree educated Data Scientist, Robotics Lover, 
+          current Reinforcement Learning explorer and avid basketball watcher. 
           Explore my projects, blog, resume, and feel free to reach out if you'd like to collaborate.
         </p>
       </div>

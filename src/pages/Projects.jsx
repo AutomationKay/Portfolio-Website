@@ -1,3 +1,6 @@
+// ===== 5. REPLACE your entire src/pages/Projects.jsx with this =====
+// This includes the RL project buttons you requested:
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -29,7 +32,7 @@ const MultiProjectCard = ({ projectGroup }) => {
                     </div>
                 </div>
 
-                {/* Project Selection Buttons - NEW FEATURE */}
+                {/* PROJECT SELECTION BUTTONS - THE NEW FEATURE YOU WANTED! */}
                 <div className="mb-4">
                     <p className="text-sm text-gray-300 mb-3">Select a project:</p>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -37,7 +40,7 @@ const MultiProjectCard = ({ projectGroup }) => {
                             <button
                                 key={index}
                                 onClick={() => setActiveProject(index)}
-                                className={`px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 break-words hyphens-auto ${
+                                className={`px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 break-words ${
                                     index === activeProject 
                                         ? 'bg-neon-green text-black shadow-lg transform scale-105' 
                                         : 'bg-gray-700 text-white hover:bg-gray-600 hover:transform hover:scale-102'
@@ -54,7 +57,6 @@ const MultiProjectCard = ({ projectGroup }) => {
                     <button
                         onClick={prevProject}
                         className="p-2 text-neon-blue hover:text-neon-green transition-colors flex-shrink-0 rounded-full hover:bg-gray-800"
-                        aria-label="Previous project"
                     >
                         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
@@ -64,14 +66,13 @@ const MultiProjectCard = ({ projectGroup }) => {
                     <button
                         onClick={nextProject}
                         className="p-2 text-neon-blue hover:text-neon-green transition-colors flex-shrink-0 rounded-full hover:bg-gray-800"
-                        aria-label="Next project"
                     >
                         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
                 </div>
 
-                {/* Media Container */}
-                <div className="w-full rounded-lg overflow-hidden bg-black" style={{ aspectRatio: '16/9' }}>
+                {/* Image/Video Container */}
+                <div className="aspect-video w-full rounded-lg overflow-hidden bg-black">
                     {currentProject.video ? (
                         <video 
                             key={currentProject.title}
@@ -79,7 +80,6 @@ const MultiProjectCard = ({ projectGroup }) => {
                             controls 
                             className="w-full h-full object-cover"
                             preload="metadata"
-                            onError={(e) => console.error('Video failed to load:', currentProject.video)}
                         >
                             <source src={currentProject.video} type="video/mp4" />
                             Your browser does not support the video tag.
@@ -89,7 +89,6 @@ const MultiProjectCard = ({ projectGroup }) => {
                             src={currentProject.image} 
                             alt={currentProject.title} 
                             className="w-full h-full object-cover"
-                            onError={(e) => console.error('Image failed to load:', currentProject.image)}
                         />
                     )}
                 </div>
@@ -97,7 +96,7 @@ const MultiProjectCard = ({ projectGroup }) => {
                 {/* Project Content */}
                 <div className="flex flex-col flex-grow justify-between">
                     <div>
-                        <p className="text-white mb-4 text-sm sm:text-base leading-relaxed break-words hyphens-auto">
+                        <p className="text-white mb-4 text-sm sm:text-base leading-relaxed break-words">
                             {currentProject.description}
                         </p>
                         <div className="flex flex-wrap gap-2 mb-4">
@@ -116,8 +115,8 @@ const MultiProjectCard = ({ projectGroup }) => {
                             rel="noopener noreferrer" 
                             className="flex items-center text-neon-blue hover:text-neon-green hover:underline text-sm sm:text-base transition-colors"
                         >
-                            <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
-                            View on GitHub
+                            <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2" /> 
+                            GitHub
                         </a>
 
                         {currentProject.liveapp && (
@@ -127,8 +126,8 @@ const MultiProjectCard = ({ projectGroup }) => {
                                 rel="noopener noreferrer" 
                                 className="flex items-center text-neon-green hover:text-neon-blue hover:underline text-sm sm:text-base transition-colors"
                             >
-                                <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
-                                Live Demo
+                                <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2" /> 
+                                Live App
                             </a>
                         )}
                     </div>
@@ -141,14 +140,13 @@ const MultiProjectCard = ({ projectGroup }) => {
 const ProjectCard = ({ project }) => (
     <div className="w-full max-w-6xl mx-auto px-4 py-6 sm:py-8 lg:py-12">
         <div className="bg-gray-900 rounded-lg p-4 sm:p-6 shadow-lg border border-neon-orange card-glow w-full flex flex-col gap-4">
-            <div className="w-full rounded-lg overflow-hidden bg-black" style={{ aspectRatio: '16/9' }}>
+            <div className="aspect-video w-full rounded-lg overflow-hidden bg-black">
                 {project.video ? (
                     <video 
                         src={project.video} 
                         controls 
                         className="w-full h-full object-cover"
                         preload="metadata"
-                        onError={(e) => console.error('Video failed to load:', project.video)}
                     >
                         <source src={project.video} type="video/mp4" />
                         Your browser does not support the video tag.
@@ -158,17 +156,16 @@ const ProjectCard = ({ project }) => (
                         src={project.image} 
                         alt={project.title} 
                         className="w-full h-full object-cover"
-                        onError={(e) => console.error('Image failed to load:', project.image)}
                     />
                 )}
             </div>
 
             <div className="flex flex-col flex-grow justify-between">
                 <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-neon-green mb-3 break-words leading-tight">
+                    <h3 className="text-lg sm:text-xl font-bold text-neon-green mb-3 break-words">
                         {project.title}
                     </h3>
-                    <p className="text-white mb-4 text-sm sm:text-base leading-relaxed break-words hyphens-auto">
+                    <p className="text-white mb-4 text-sm sm:text-base leading-relaxed break-words">
                         {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -187,8 +184,8 @@ const ProjectCard = ({ project }) => (
                         rel="noopener noreferrer" 
                         className="flex items-center text-neon-blue hover:text-neon-green hover:underline text-sm sm:text-base transition-colors"
                     >
-                        <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
-                        View on GitHub
+                        <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2" /> 
+                        GitHub
                     </a>
 
                     {project.liveapp && (
@@ -198,8 +195,8 @@ const ProjectCard = ({ project }) => (
                             rel="noopener noreferrer" 
                             className="flex items-center text-neon-green hover:text-neon-blue hover:underline text-sm sm:text-base transition-colors"
                         >
-                            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" /> 
-                            Live Demo
+                            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2" /> 
+                            Live App
                         </a>
                     )}
                 </div>
@@ -287,7 +284,7 @@ export default function Projects() {
 
     return (
         <motion.div {...pageMotion} className="flex flex-col items-center w-full px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-neon-orange font-semibold mb-8 sm:mb-10 lg:mb-12 text-center leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-neon-orange font-semibold mb-8 sm:mb-10 lg:mb-12 text-center">
                 Projects
             </h2>
             

@@ -289,3 +289,31 @@ img {
     overflow-wrap: break-word;
   }
 }
+
+@media (max-width: 1024px) {
+  .lg\:ml-64 {
+    margin-left: 0 !important;
+  }
+}
+
+/* Better text wrapping */
+.break-words {
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* Prevent horizontal scroll */
+body, html {
+  overflow-x: hidden;
+}
+
+/* Mobile sidebar fix */
+@media (max-width: 1024px) {
+  .fixed.left-0.z-20 {
+    display: none;
+  }
+}
